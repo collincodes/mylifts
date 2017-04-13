@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Changa:200,300,400,500,600,700);
-@import url(https://fonts.googleapis.com/css?family=Changa:600|Ubuntu);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,600);
 /**
  * Base Elements
  */
@@ -23,7 +23,7 @@ div,
 span,
 a {
     text-align: center;
-    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: 'Ubuntu', 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
     line-height: 1.5;
 }
 
@@ -182,12 +182,21 @@ p {
  */
 
 .jumbo {
-    padding: 50px;
+    padding: 50px 100px;
     background: #f6f6f6;
+    margin-bottom: 15px;
 }
 
 .jumbo:hover {
     background-color: #f3f3f3;
+}
+
+.jumbo h1 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#logo {
+    font-family: 'Changa', sans-serif;
 }
 
 .jumbo h2 {
@@ -204,6 +213,10 @@ p {
 
 .jumbo p {
     margin-bottom: 25px;
+}
+
+#mldescription {
+    font-weight: 400;
 }
 
 .jumbo img {

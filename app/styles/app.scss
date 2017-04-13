@@ -1,0 +1,16 @@
+@import 'ember-paper';
+
+.md-button {
+  padding: 10px 28px 10px;
+  text-decoration: none;
+  color: #fff;
+  background: #0099D1;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.md-button:hover {
+  color: #000;
+}
