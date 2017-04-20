@@ -18,29 +18,31 @@
       {{fitness.goal}}
     {{/if}}
   {{/paper-select}}
-
 </div>
 
 {{#if chosenFitnessGoal.goal}}
 <div class='jumbo muscleGroup'>
   <h1>Awesome!</h1>
-  <h3>You have chosen, {{chosenFitnessGoal.goal}}.</h3>
-  <h4>Now choose 2 or 3 muscle groups you'd like to focus on!</h4>
-  {{#paper-select label="Muscle Group 1" options=muscleGroups selected=chosenMuscleGroup1 onChange=(action (mut chosenMuscleGroup1)) as |muscle|}}
-    {{#if muscle.group}}
+  <h3>Let's get your {{chosenFitnessGoal.goal}} program started.</h3>
+  <h4>Choose 2 or 3 muscle groups you'd like to focus on for today!</h4>
+  <div class="layout-row layout-align-space-between" style="padding-top:5px;">
+    {{#paper-select class="flex-30" label="Muscle Group 1" options=firstGroup selected=chosenMuscleGroup1 onChange=(action "changeGroups" "1") as |muscle|}}
       {{muscle.group}}
-    {{/if}}
-  {{/paper-select}}
-  {{#paper-select label="Muscle Group 2" options=muscleGroups selected=chosenMuscleGroup2 onChange=(action (mut chosenMuscleGroup2)) as |muscle|}}
-    {{#if muscle.group}}
+    {{/paper-select}}
+    {{#paper-select class="flex-30" label="Muscle Group 2" options=secondGroup selected=chosenMuscleGroup2 onChange=(action "changeGroups" "2") as |muscle|}}
       {{muscle.group}}
-    {{/if}}
-  {{/paper-select}}
-  {{#paper-select label="Muscle Group 3" options=muscleGroups selected=chosenMuscleGroup3 onChange=(action (mut chosenMuscleGroup3)) as |muscle|}}
-    {{#if muscle.group}}
+    {{/paper-select}}
+    {{#paper-select class="flex-30" label="Muscle Group 3" options=thirdGroup selected=chosenMuscleGroup3 onChange=(action "changeGroups" "3") as |muscle|}}
       {{muscle.group}}
-    {{/if}}
-  {{/paper-select}}
+    {{/paper-select}}
+  </div>
+
+</div>
+{{/if}}
+
+{{#if (gte chosenGroups.length 2)}}
+<div class='jumbo exerciseChoice'>
+  <h1>It worked!</h1>
 </div>
 {{/if}}
 {{outlet}}
