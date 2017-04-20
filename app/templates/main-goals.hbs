@@ -1,0 +1,5 @@
+{{#paper-select label="Fitness Goals" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessPlan)) as |plan|}}
+  {{#if fitness.goal}}
+    {{fitness.goal}}
+  {{/if}}
+{{/paper-select}}

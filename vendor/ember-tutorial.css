@@ -41,6 +41,7 @@ p {
     line-height: 1.5;
     margin-bottom: 15px;
 }
+
 /**
  * Button
  */
@@ -119,16 +120,6 @@ p {
     bottom: 5px;
 }
 
-.list-filter input {
-    padding: 11px;
-    font-size: 18px;
-    width: 500px;
-    margin: 50px auto;
-    background-color: rgba(255, 255, 255, 0.75);
-    border: solid 1px lightgray;
-    display: block;
-}
-
 .menu input:focus {
     background-color: #f9f9f9;
     outline: none;
@@ -151,25 +142,6 @@ p {
     opacity: 1;
 }
 
-.menu .results {
-    display: none;
-    position: absolute;
-    width: 215px;
-    top: 54px;
-    left: 10px;
-    background-color: #f6f6f6;
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.results li {
-    list-style: none;
-    padding: 10px 15px;
-}
-
-.menu .results li:hover {
-    background: #f3f3f3;
-}
 /**
  * Content Area
  */
@@ -215,6 +187,16 @@ p {
     margin-bottom: 25px;
 }
 
+.programstart {
+  display: none;
+}
+
+#ember425, #ember567, #ember572, #ember577 {
+  text-align: center;
+  width: 200px;
+  margin-top: 30px;
+}
+
 #mldescription {
     font-weight: 400;
 }
@@ -225,108 +207,7 @@ p {
     top: -25px;
     right: -20px;
 }
-/**
- * Individual Listings
- */
 
-.listing {
-    margin-top: 15px;
-    background-color: #f6f6f6;
-    padding: 15px 50px;
-    min-height: 145px;
-    position: relative;
-}
-
-.listing:hover {
-    background-color: #f3f3f3;
-}
-
-.listing img {
-    height: 100px;
-    float: left;
-    margin-right: 45px;
-    border-radius: 5px;
-}
-
-.listing a.image.wide {
-    max-width: 100%;
-    position: relative;
-    z-index: 999;
-}
-
-.listing .wide img {
-    height: initial;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.listing .wide small {
-    display: none;
-}
-
-.listing a.image {
-    max-width: 150px;
-    display: block;
-    cursor: pointer;
-}
-
-.listing small {
-    float: left;
-    display: block;
-    text-align: center;
-    width: 136px;
-}
-
-.listing h3 {
-    padding: 0 15px 0 0;
-}
-
-.listing h3 a {
-    display: inline;
-}
-
-.listing .map {
-    position: absolute;
-    bottom: 13px;
-    right: 50px;
-    height: 120px;
-    width: 120px;
-    background-size: cover;
-    border-radius: 5px;
-}
-
-.listing .detail {
-    width: 36%;
-    display: inline-block;
-    padding: 10px 15px 0 0;
-    margin: 0;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.listing .detail span {
-    font-weight: 400;
-    font-style: normal;
-}
-
-.show-listing .title {
-    margin-bottom: 15px;
-}
-
-.show-listing .detail-section {
-    width: 50%;
-    padding-left: 30px;
-}
-
-.show-listing .owner {
-    margin-top: 10px;
-}
-
-.show-listing .rental-pic {
-    width: 50%;
-    height: initial;
-    position: static;
-}
 /**
  * Utilities
  */

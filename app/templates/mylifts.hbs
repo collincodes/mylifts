@@ -2,7 +2,7 @@
   <h1>Welcome to <span id='logo'>MyLift</span></h1>
   <h3>Fitness programming made easy.</h3>
   <p>
-    <em id='mldescription'>We at MyLift wanted to provide the simplest way to create custom fitness programs
+    <em id='mldescription'>At MyLift, we wanted to provide the simplest way to create custom fitness programs
     based on research-proven training methods -- so that's exactly what we did!</em>
   </p>
   <!-- <p>
@@ -13,6 +13,34 @@
 
 <div class='jumbo programstart'>
   <h1>Fitness Goal</h1>
+  {{#paper-select label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
+    {{#if fitness.goal}}
+      {{fitness.goal}}
+    {{/if}}
+  {{/paper-select}}
+
 </div>
 
+{{#if chosenFitnessGoal.goal}}
+<div class='jumbo muscleGroup'>
+  <h1>Awesome!</h1>
+  <h3>You have chosen, {{chosenFitnessGoal.goal}}.</h3>
+  <h4>Now choose 2 or 3 muscle groups you'd like to focus on!</h4>
+  {{#paper-select label="Muscle Group 1" options=muscleGroups selected=chosenMuscleGroup1 onChange=(action (mut chosenMuscleGroup1)) as |muscle|}}
+    {{#if muscle.group}}
+      {{muscle.group}}
+    {{/if}}
+  {{/paper-select}}
+  {{#paper-select label="Muscle Group 2" options=muscleGroups selected=chosenMuscleGroup2 onChange=(action (mut chosenMuscleGroup2)) as |muscle|}}
+    {{#if muscle.group}}
+      {{muscle.group}}
+    {{/if}}
+  {{/paper-select}}
+  {{#paper-select label="Muscle Group 3" options=muscleGroups selected=chosenMuscleGroup3 onChange=(action (mut chosenMuscleGroup3)) as |muscle|}}
+    {{#if muscle.group}}
+      {{muscle.group}}
+    {{/if}}
+  {{/paper-select}}
+</div>
+{{/if}}
 {{outlet}}
