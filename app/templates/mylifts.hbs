@@ -13,36 +13,108 @@
 
 <div class='jumbo programstart'>
   <h1>Fitness Goal</h1>
-  {{#paper-select label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
+  <div class='layout-row layout-align-center' style="text-align: center">
+  {{#paper-select class="flex-33" label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
     {{#if fitness.goal}}
       {{fitness.goal}}
     {{/if}}
   {{/paper-select}}
+  </div>
 </div>
 
 {{#if chosenFitnessGoal.goal}}
 <div class='jumbo muscleGroup'>
-  <h1>Awesome!</h1>
+  <h1>{{retRandMessage}}</h1>
   <h3>Let's get your {{chosenFitnessGoal.goal}} program started.</h3>
   <h4>Choose 2 or 3 muscle groups you'd like to focus on for today!</h4>
-  <div class="layout-row layout-align-space-between" style="padding-top:5px;">
-    {{#paper-select class="flex-30" label="Muscle Group 1" options=firstGroup selected=chosenMuscleGroup1 onChange=(action "changeGroups" "1") as |muscle|}}
+  <div class="layout-row layout-align-space-between" style="padding-top: 15px;">
+    {{#paper-select class="flex-30" label="Primary Muscle" options=firstGroup selected=chosenMuscleGroup1 onChange=(action "changeGroups" "1") as |muscle|}}
       {{muscle.group}}
     {{/paper-select}}
-    {{#paper-select class="flex-30" label="Muscle Group 2" options=secondGroup selected=chosenMuscleGroup2 onChange=(action "changeGroups" "2") as |muscle|}}
+    {{#paper-select class="flex-30" label="Secondary Muscle" options=secondGroup selected=chosenMuscleGroup2 onChange=(action "changeGroups" "2") as |muscle|}}
       {{muscle.group}}
     {{/paper-select}}
-    {{#paper-select class="flex-30" label="Muscle Group 3" options=thirdGroup selected=chosenMuscleGroup3 onChange=(action "changeGroups" "3") as |muscle|}}
+    {{#paper-select class="flex-30" label="(Optional) Assistive Muscle" options=thirdGroup selected=chosenMuscleGroup3 onChange=(action "changeGroups" "3") as |muscle|}}
       {{muscle.group}}
     {{/paper-select}}
   </div>
-
 </div>
 {{/if}}
 
 {{#if (gte chosenGroups.length 2)}}
 <div class='jumbo exerciseChoice'>
-  <h1>It worked!</h1>
+  <h1>{{retRandMessage2}}</h1>
+  <h4>Now choose to either manually select exercises, or generate random exercises for your program.</h4>
+  <div class='layout-row layout-align-center' style='padding-top: 15px;'>
+    {{#paper-button onClick=(action "clickManual")}}Manual{{/paper-button}}
+    {{#paper-button onClick=(action "clickRandom")}}Random{{/paper-button}}
+  </div>
 </div>
 {{/if}}
+
+<div class='jumbo manualChoice'>
+  <h1>Let's get started!</h1>
+  <h4>Select your exercises, and save when you're finished.</h4>
+  <div class='layout-column layout-align-space-between' style='padding-top: 20px;'>
+    <h3 class='flex-30' style='margin-bottom: 10px;'>{{chosenMuscleGroup1.group}}</h3>
+    <h4 style='margin-bottom: 10px;'>Choose 3 or 4 Compound exercises.</h4>
+    {{#if (is-equal chosenMuscleGroup1.group "Chest")}}
+      <div class='chestOptions layout-row layout-align-space-between'>
+        {{#paper-select class='flex-25' required=true label="Core Exercise 1" options=compChest selected=chestCore1 onChange=(action (mut chestCore1)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+        {{#paper-select class='flex-25' required=true label="Core Exercise 2" options=compChest selected=chestCore2 onChange=(action (mut chestCore2)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+        {{#paper-select class='flex-25' required=true label="Core Exercise 3" options=compChest selected=chestCore3 onChange=(action (mut chestCore3)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+        {{#paper-select class='flex-25' label="Core Exercise 4" options=compChest4 selected=chestCore onChange=(action (mut chestCore4)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+      </div>
+    {{/if}}
+    {{#if (and (not-eq chosenMuscleGroup2.group "Back") (not-eq chosenMuscleGroup2.group "Shoulders") (not-eq chosenMuscleGroup2.group "Legs & Glutes"))}}
+    <h4 style='margin-bottom: 10px;'>And choose 2 or 3 Isolation exercises.</h4>
+      <div class='chestOptions layout-row layout-align-space-between'>
+        {{#paper-select class='flex-33' required=true label="Iso Exercise 1" options=isoChest selected=chestIso1 onChange=(action (mut chestIso1)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+        {{#paper-select class='flex-33' required=true label="Iso Exercise 2" options=isoChest selected=chestIso2 onChange=(action (mut chestIso2)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+        {{#paper-select class='flex-33' label="Iso Exercise 3" options=isoChest selected=chestIso3 onChange=(action (mut chestIso3)) as |exercise|}}
+          {{exercise}}
+        {{/paper-select}}
+      </div>
+    {{/if}}
+    {{#if (is-equal chosenMuscleGroup1.group "Back")}}
+      <div class='backOptions'>
+      </div>
+    {{/if}}
+    {{#if (is-equal chosenMuscleGroup1.group "Shoulders")}}
+      <div class='deltOptions'>
+      </div>
+    {{/if}}
+    {{#if (is-equal chosenMuscleGroup1.group "Legs & Glutes")}}
+      <div class='legOptions'>
+      </div>
+    {{/if}}
+    {{#if (is-equal chosenMuscleGroup1.group "Triceps")}}
+      <div class='triOptions'>
+      </div>
+    {{/if}}
+    {{#if (is-equal chosenMuscleGroup1.group "Biceps")}}
+      <div class='biOptions'>
+      </div>
+    {{/if}}
+    {{#if (is-equal chosenMuscleGroup1.group "Abdominals")}}
+      <div class='abdOptions'>
+      </div>
+    {{/if}}
+    <h4 class='flex-30'>{{chosenMuscleGroup2.group}}</h4>
+    <h4 class='flex-30'>{{chosenMuscleGroup3.group}}</h4>
+  </div>
+</div>
+<div class='randomChoice'>Random</div>
 {{outlet}}
