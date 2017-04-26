@@ -25,7 +25,7 @@
     <div class='jumbo programstart'>
       <h1>Fitness Goal</h1>
       <div class='layout-row layout-align-center' style="text-align: center">
-      {{#paper-select class="flex-33" label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
+      {{#paper-select class="flex-30" label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
         {{#if fitness.goal}}
           {{fitness.goal}}
         {{/if}}

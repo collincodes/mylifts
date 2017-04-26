@@ -247,6 +247,15 @@ p {
   .jumbo.about, .jumbo.cont {
     top: 0;
   }
+  .md-select {
+    display: block;
+  }
+  .flex-30, .flex-45 {
+    min-width: 60%;
+  }
+  .layout-row {
+    display: block;
+  }
 }
 
 @media (max-width: ) {
