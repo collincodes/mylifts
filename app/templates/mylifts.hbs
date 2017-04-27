@@ -64,7 +64,7 @@
       <h4>Now choose to either manually select exercises, or generate random exercises for your program.</h4>
       <div class='layout-row layout-align-center' style='padding-top: 15px;'>
         {{#paper-button onClick=(action "clickManual")}}Manual{{/paper-button}}
-        {{#paper-button onClick=(action "clickRandom")}}Random{{/paper-button}}
+        {{#paper-button disabled=true onClick=(action "clickRandom")}}Random{{/paper-button}}
       </div>
     </div>
     {{/if}}
@@ -81,195 +81,207 @@
         <div class='chestOptions'>
         <h4 style='margin-bottom: 10px;'>Choose 3 to 4 Core exercises & 2 to 3 Isolation Exercises.</h4>
           <div class='options layout-row layout-align-space-between'>
-            {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compChest selected=chestCore1 onChange=(action (mut chestCore1)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compChest1 selected=chestCore1 onChange=(action "changeChest" "1") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compChest selected=chestCore2 onChange=(action (mut chestCore2)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compChest2 selected=chestCore2 onChange=(action "changeChest" "2") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' required=true label="Core Exercise 3" options=compChest selected=chestCore3 onChange=(action (mut chestCore3)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Core Exercise 3" options=compChest3 selected=chestCore3 onChange=(action "changeChest" "3") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' label="Core Exercise 4" options=compChest selected=chestCore4 onChange=(action (mut chestCore4)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' label="Core Exercise 4" options=compChest4 selected=chestCore4 onChange=(action "changeChest" "4") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
           </div>
           <div class='options layout-row layout-align-space-between'>
-            {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=isoChest selected=chestIso1 onChange=(action (mut chestIso1)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=isoChest1 selected=chestIso1 onChange=(action "changeIsoChest" "1") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=isoChest selected=chestIso2 onChange=(action (mut chestIso2)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=isoChest2 selected=chestIso2 onChange=(action "changeIsoChest" "2") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' label="Iso Exercise 3" options=isoChest selected=chestIso3 onChange=(action (mut chestIso3)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' label="Iso Exercise 3" options=isoChest3 selected=chestIso3 onChange=(action "changeIsoChest" "3") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
           </div>
         </div>
         {{/if}}
+
+        <!-- PRIMARY BACK GROUP -->
         {{#if (is-equal chosenMuscleGroup1.group "Back")}}
           <div class='backOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 3 to 4 Core exercises & 2 to 3 Isolation Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compBack selected=backCore1 onChange=(action (mut backCore1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compBack1 selected=backCore1 onChange=(action "changeBack" "1") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compBack selected=backCore2 onChange=(action (mut backCore2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compBack2 selected=backCore2 onChange=(action "changeBack" "2") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 3" options=compBack selected=backCore3 onChange=(action (mut backCore3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 3" options=compBack3 selected=backCore3 onChange=(action "changeBack" "3") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Core Exercise 4" options=compBack selected=backCore4 onChange=(action (mut backCore4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Core Exercise 4" options=compBack4 selected=backCore4 onChange=(action "changeBack" "4") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=isoBack selected=backIso1 onChange=(action (mut backIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=isoBack1 selected=backIso1 onChange=(action "changeIsoBack" "1") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=isoBack selected=backIso2 onChange=(action (mut backIso2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=isoBack2 selected=backIso2 onChange=(action "changeIsoBack" "2") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Iso Exercise 3" options=isoBack selected=backIso3 onChange=(action (mut backIso3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Iso Exercise 3" options=isoBack3 selected=backIso3 onChange=(action "changeIsoBack" "3") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- PRIMARY SHOULDERS GROUP -->
         {{#if (is-equal chosenMuscleGroup1.group "Shoulders")}}
           <div class='deltOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 3 to 4 Core exercises & 2 to 3 Isolation Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compShoulder selected=deltCore1 onChange=(action (mut deltCore1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compShoulder1 selected=deltCore1 onChange=(action "changeDelts" "1") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compShoulder selected=deltCore2 onChange=(action (mut deltCore2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compShoulder2 selected=deltCore2 onChange=(action "changeDelts" "2") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 3" options=compShoulder selected=deltCore3 onChange=(action (mut deltCore3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 3" options=compShoulder3 selected=deltCore3 onChange=(action "changeDelts" "3") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Core Exercise 4" options=compShoulder selected=deltCore4 onChange=(action (mut deltCore4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Core Exercise 4" options=compShoulder4 selected=deltCore4 onChange=(action "changeDelts" "4") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=postShoulder selected=deltIso1 onChange=(action (mut deltIso1)) as |exercise|}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=antShoulder selected=deltIso2 onChange=(action (mut deltIso2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=antShoulder1 selected=antIso1 onChange=(action "changeIsoDelt" "1") as |delt|}}
+                {{delt.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Iso Exercise 3" options=antShoulder selected=deltIso3 onChange=(action (mut deltIso3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Iso Exercise 3" options=antShoulder2 selected=antIso2 onChange=(action "changeIsoDelt" "2") as |delt|}}
+                {{delt.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- PRIMARY LEGS AND GLUTES -->
         {{#if (is-equal chosenMuscleGroup1.group "Legs & Glutes")}}
           <div class='legOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 2 to 3 Core exercises & 3 to 5 Isolation Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compLegs selected=legsCore1 onChange=(action (mut legsCore1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compLegs1 selected=legsCore1 onChange=(action "changeLegs" "1") as |legs|}}
+                {{legs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compLegs selected=legsCore2 onChange=(action (mut legsCore2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compLegs2 selected=legsCore2 onChange=(action "changeLegs" "2") as |legs|}}
+                {{legs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Core Exercise 3" options=compLegs selected=legsCore3 onChange=(action (mut legsCore3)) as |exercise|}}
-                {{exercise}}
-              {{/paper-select}}
-            </div>
-            <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=isoQuadsHams selected=legIso1 onChange=(action (mut legIso1)) as |exercise|}}
-                {{exercise}}
-              {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=isoQuadsHams selected=legIso2 onChange=(action (mut legIso2)) as |exercise|}}
-                {{exercise}}
-              {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 3" options=isoQuadsHams selected=legIso3 onChange=(action (mut legIso3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Core Exercise 3" options=compLegs3 selected=legsCore3 onChange=(action "changeLegs" "3") as |legs|}}
+                {{legs.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Iso Exercise 4" options=isoGlutes selected=legIso4 onChange=(action (mut legIso4)) as |exercise|}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=isoQuadsHams1 selected=legIso1 onChange=(action "changeIsoLegs" "1") as |legs|}}
+                {{legs.isoexercise}}
+              {{/paper-select}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=isoQuadsHams2 selected=legIso2 onChange=(action "changeIsoLegs" "2") as |legs|}}
+                {{legs.isoexercise}}
+              {{/paper-select}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 3" options=isoQuadsHams3 selected=legIso3 onChange=(action "changeIsoLegs" "3") as |legs|}}
+                {{legs.isoexercise}}
+              {{/paper-select}}
+            </div>
+            <div class='options layout-row layout-align-space-between'>
+              {{#paper-select class='flex-45' required=true label="Iso Exercise 4" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 5" options=isoAbAd selected=legIso5 onChange=(action (mut legIso5)) as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 5" options=isoAbAd selected=abadIso onChange=(action (mut abadIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- PRIMARY TRICEPS GROUP -->
         {{#if (is-equal chosenMuscleGroup1.group "Triceps")}}
           <div class='triOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 4 to 5 Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isTris selected=triExerc1 onChange=(action (mut triExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isTris1 selected=triExerc1 onChange=(action "changeTriceps" "1") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isTris selected=triExerc2 onChange=(action (mut triExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isTris2 selected=triExerc2 onChange=(action "changeTriceps" "2") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isTris selected=triExerc3 onChange=(action (mut triExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isTris3 selected=triExerc3 onChange=(action "changeTriceps" "3") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Exercise 4" options=isTris selected=triExerc4 onChange=(action (mut triExerc4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' required=true label="Exercise 4" options=isTris4 selected=triExerc4 onChange=(action "changeTriceps" "4") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Exercise 5" options=isTris selected=triExerc5 onChange=(action (mut triExerc5)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Exercise 5" options=isTris5 selected=triExerc5 onChange=(action "changeTriceps" "5") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- PRIMARY BICEPS GROUP -->
         {{#if (is-equal chosenMuscleGroup1.group "Biceps")}}
           <div class='biOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 4 to 5 Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isBis selected=biExerc1 onChange=(action (mut biExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isBis1 selected=biExerc1 onChange=(action "changeBiceps" "1") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isBis selected=biExerc2 onChange=(action (mut biExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isBis2 selected=biExerc2 onChange=(action "changeBiceps" "2") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isBis selected=biExerc3 onChange=(action (mut biExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isBis3 selected=biExerc3 onChange=(action "changeBiceps" "3") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Exercise 4" options=isBis selected=biExerc4 onChange=(action (mut biExerc4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' required=true label="Exercise 4" options=isBis4 selected=biExerc4 onChange=(action "changeBiceps" "4") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Exercise 5" options=isBis selected=biExerc5 onChange=(action (mut biExerc5)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Exercise 5" options=isBis5 selected=biExerc5 onChange=(action "changeBiceps" "5") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- PRIMARY ABDOMINALS GROUP -->
         {{#if (is-equal chosenMuscleGroup1.group "Abdominals")}}
           <div class='abdOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 4 to 5 Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isAbs selected=abExerc1 onChange=(action (mut abExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isAbs1 selected=abExerc1 onChange=(action "changeAbs" "1") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isAbs selected=abExerc2 onChange=(action (mut abExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isAbs2 selected=abExerc2 onChange=(action "changeAbs" "2") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isAbs selected=abExerc3 onChange=(action (mut abExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isAbs3 selected=abExerc3 onChange=(action "changeAbs" "3") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Exercise 4" options=isAbs selected=abExerc4 onChange=(action (mut abExerc4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' required=true label="Exercise 4" options=isAbs4 selected=abExerc4 onChange=(action "changeAbs" "4") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Exercise 5" options=isAbs selected=abExerc5 onChange=(action (mut abExerc5)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Exercise 5" options=isAbs5 selected=abExerc5 onChange=(action "changeAbs" "5") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
             </div>
           </div>
@@ -285,151 +297,163 @@
         <div class='chestOptions'>
           <h4 style='margin-bottom: 10px;'>Choose 2 to 3 Core exercises & 1 to 2 Isolation Exercises.</h4>
           <div class='options layout-row layout-align-space-between'>
-            {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compChest selected=chestCore1 onChange=(action (mut chestCore1)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compChest1 selected=chestCore1 onChange=(action "changeChest" "1") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compChest selected=chestCore2 onChange=(action (mut chestCore2)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compChest2 selected=chestCore2 onChange=(action "changeChest" "2") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-30' label="Core Exercise 3" options=compChest selected=chestCore3 onChange=(action (mut chestCore3)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-30' label="Core Exercise 3" options=compChest3 selected=chestCore3 onChange=(action "changeChest" "3") as |chest|}}
+              {{chest.exercise}}
             {{/paper-select}}
           </div>
           <div class='options layout-row layout-align-space-between'>
-            {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoChest selected=chestIso1 onChange=(action (mut chestIso1)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoChest1 selected=chestIso1 onChange=(action "changeIsoChest" "1") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoChest selected=chestIso2 onChange=(action (mut chestIso2)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoChest2 selected=chestIso2 onChange=(action "changeIsoChest" "2") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
           </div>
         </div>
         {{/if}}
+
+        <!-- SECONDARY BACK GROUP -->
         {{#if (is-equal chosenMuscleGroup2.group "Back")}}
           <div class='backOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 2 to 3 Core exercises & 1 to 2 Isolation Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compBack selected=backCore1 onChange=(action (mut backCore1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compBack1 selected=backCore1 onChange=(action "changeBack" "1") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compBack selected=backCore2 onChange=(action (mut backCore2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compBack2 selected=backCore2 onChange=(action "changeBack" "2") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Core Exercise 3" options=compBack selected=backCore3 onChange=(action (mut backCore3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Core Exercise 3" options=compBack3 selected=backCore3 onChange=(action "changeBack" "3") as |back|}}
+                {{back.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoBack selected=backIso1 onChange=(action (mut backIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoBack1 selected=backIso1 onChange=(action "changeIsoBack" "1") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoBack selected=backIso2 onChange=(action (mut backIso2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoBack2 selected=backIso2 onChange=(action "changeIsoBack" "2") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- SECONDARY SHOULDERS GROUP -->
         {{#if (is-equal chosenMuscleGroup2.group "Shoulders")}}
           <div class='deltOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 2 to 3 Core exercises & 1 to 2 Isolation Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compShoulder selected=deltCore1 onChange=(action (mut deltCore1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compShoulder1 selected=deltCore1 onChange=(action "changeDelts" "1") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compShoulder selected=deltCore2 onChange=(action (mut deltCore2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compShoulder2 selected=deltCore2 onChange=(action "changeDelts" "2") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Core Exercise 3" options=compShoulder selected=deltCore3 onChange=(action (mut deltCore3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Core Exercise 3" options=compShoulder3 selected=deltCore3 onChange=(action "changeDelts" "3") as |delt|}}
+                {{delt.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=antShoulder selected=deltIso1 onChange=(action (mut deltIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=antShoulder selected=antIso onChange=(action (mut antIso)) as |delt|}}
+                {{delt.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=postShoulder selected=deltIso2 onChange=(action (mut deltIso2)) as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- SECONDARY LEGS AND GLUTES GROUP -->
         {{#if (is-equal chosenMuscleGroup2.group "Legs & Glutes")}}
           <div class='legOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 2 to 3 Core exercises & 1 to 2 Isolation Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compLegs selected=legsCore1 onChange=(action (mut legsCore1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 1" options=compLegs1 selected=legsCore1 onChange=(action "changeLegs" "1") as |legs|}}
+                {{legs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compLegs selected=legsCore2 onChange=(action (mut legsCore2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Core Exercise 2" options=compLegs2 selected=legsCore2 onChange=(action "changeLegs" "2") as |legs|}}
+                {{legs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Core Exercise 3" options=compLegs selected=legsCore3 onChange=(action (mut legsCore3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Core Exercise 3" options=compLegs3 selected=legsCore3 onChange=(action "changeLegs" "3") as |legs|}}
+                {{legs.exercise}}
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoQuadsHams selected=deltIso1 onChange=(action (mut deltIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoQuadsHams selected=legIso onChange=(action (mut legIso)) as |quads|}}
+                {{quads.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoGlutes selected=deltIso2 onChange=(action (mut deltIso2)) as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- SECONDARY TRICEPS GROUP -->
         {{#if (is-equal chosenMuscleGroup2.group "Triceps")}}
           <div class='triOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 3 to 4 Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isTris selected=triExerc1 onChange=(action (mut triExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isTris1 selected=triExerc1 onChange=(action "changeTriceps" "1") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isTris selected=triExerc2 onChange=(action (mut triExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isTris2 selected=triExerc2 onChange=(action "changeTriceps" "2") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isTris selected=triExerc3 onChange=(action (mut triExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isTris3 selected=triExerc3 onChange=(action "changeTriceps" "3") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 4" options=isTris selected=triExerc4 onChange=(action (mut triExerc4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 4" options=isTris4 selected=triExerc4 onChange=(action "changeTriceps" "4") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- SECONDARY BICEPS GROUP -->
         {{#if (is-equal chosenMuscleGroup2.group "Biceps")}}
           <div class='biOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 3 to 4 Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isBis selected=biExerc1 onChange=(action (mut biExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isBis1 selected=biExerc1 onChange=(action "changeBiceps" "1") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isBis selected=biExerc2 onChange=(action (mut biExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isBis2 selected=biExerc2 onChange=(action "changeBiceps" "2") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isBis selected=biExerc3 onChange=(action (mut biExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isBis3 selected=biExerc3 onChange=(action "changeBiceps" "3") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 4" options=isBis selected=biExerc4 onChange=(action (mut biExerc4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 4" options=isBis4 selected=biExerc4 onChange=(action "changeBiceps" "4") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- SECONDARY ABDOMINALS GROUP -->
         {{#if (is-equal chosenMuscleGroup2.group "Abdominals")}}
           <div class='abdOptions'>
             <h4 style='margin-bottom: 10px;'>Choose 3 to 4 Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isAbs selected=abExerc1 onChange=(action (mut abExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isAbs1 selected=abExerc1 onChange=(action "changeAbs" "1") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isAbs selected=abExerc2 onChange=(action (mut abExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 2" options=isAbs2 selected=abExerc2 onChange=(action "changeAbs" "2") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isAbs selected=abExerc3 onChange=(action (mut abExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 3" options=isAbs3 selected=abExerc3 onChange=(action "changeAbs" "3") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 4" options=isAbs selected=abExerc4 onChange=(action (mut abExerc4)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 4" options=isAbs4 selected=abExerc4 onChange=(action "changeAbs" "4") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
             </div>
           </div>
@@ -444,103 +468,118 @@
         <div class='chestOptions'>
           <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
           <div class='options layout-row layout-align-space-between'>
-            {{#paper-select class='flex-45' label="Iso Exercise 1" options=isoChest selected=chestIso1 onChange=(action (mut chestIso1)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-45' label="Iso Exercise 1" options=isoChest1 selected=chestIso1 onChange=(action "changeIsoChest" "1") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
-            {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoChest selected=chestIso2 onChange=(action (mut chestIso2)) as |exercise|}}
-              {{exercise}}
+            {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoChest2 selected=chestIso2 onChange=(action "changeIsoChest" "2") as |chest|}}
+              {{chest.isoexercise}}
             {{/paper-select}}
           </div>
         </div>
         {{/if}}
+
+        <!-- TERTIARY BACK GROUP -->
         {{#if (is-equal chosenMuscleGroup3.group "Back")}}
           <div class='backOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' label="Iso Exercise 1" options=isoBack selected=backIso1 onChange=(action (mut backIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 1" options=isoBack1 selected=backIso1 onChange=(action "changeIsoBack" "1") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoBack selected=backIso2 onChange=(action (mut backIso2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoBack2 selected=backIso2 onChange=(action "changeIsoBack" "2") as |back|}}
+                {{back.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- TERTIARY SHOULDERS GROUP -->
         {{#if (is-equal chosenMuscleGroup3.group "Shoulders")}}
           <div class='deltOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45'label="Iso Exercise 1" options=antShoulder selected=deltIso1 onChange=(action (mut deltIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45'label="Iso Exercise 1" options=antShoulder selected=antIso onChange=(action (mut antIso)) as |exercise|}}
+                {{exercise.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=postShoulder selected=deltIso2 onChange=(action (mut deltIso2)) as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- TERTIARY LEGS AND GLUTES GROUP -->
         {{#if (is-equal chosenMuscleGroup3.group "Legs & Glutes")}}
           <div class='legOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' label="Iso Exercise 1" options=isoQuadsHams selected=deltIso1 onChange=(action (mut deltIso1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 1" options=isoQuadsHams selected=quadIso onChange=(action (mut quadIso)) as |exercise|}}
+                {{exercise.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoGlutes selected=deltIso2 onChange=(action (mut deltIso2)) as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- TERTIARY TRICEPS GROUP -->
         {{#if (is-equal chosenMuscleGroup3.group "Triceps")}}
           <div class='triOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isTris selected=triExerc1 onChange=(action (mut triExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Exercise 1" options=isTris1 selected=triExerc1 onChange=(action "changeTriceps" "1") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 2" options=isTris selected=triExerc2 onChange=(action (mut triExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 2" options=isTris2 selected=triExerc2 onChange=(action "changeTriceps" "2") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 3" options=isTris selected=triExerc3 onChange=(action (mut triExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 3" options=isTris3 selected=triExerc3 onChange=(action "changeTriceps" "3") as |tris|}}
+                {{tris.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- TERTIARY BICEPS GROUP -->
         {{#if (is-equal chosenMuscleGroup3.group "Biceps")}}
           <div class='biOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' label="Exercise 1" options=isBis selected=biExerc1 onChange=(action (mut biExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 1" options=isBis1 selected=biExerc1 onChange=(action "changeBiceps" "1") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 2" options=isBis selected=biExerc2 onChange=(action (mut biExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 2" options=isBis2 selected=biExerc2 onChange=(action "changeBiceps" "2") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 3" options=isBis selected=biExerc3 onChange=(action (mut biExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 3" options=isBis3 selected=biExerc3 onChange=(action "changeBiceps" "3") as |bis|}}
+                {{bis.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
+
+        <!-- TERTIARY ABDOMINALS GROUP -->
         {{#if (is-equal chosenMuscleGroup3.group "Abdominals")}}
           <div class='abdOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' label="Exercise 1" options=isAbs selected=abExerc1 onChange=(action (mut abExerc1)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 1" options=isAbs1 selected=abExerc1 onChange=(action "changeAbs" "1") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 2" options=isAbs selected=abExerc2 onChange=(action (mut abExerc2)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 2" options=isAbs2 selected=abExerc2 onChange=(action "changeAbs" "2") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-30' label="Exercise 3" options=isAbs selected=abExerc3 onChange=(action (mut abExerc3)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' label="Exercise 3" options=isAbs3 selected=abExerc3 onChange=(action "changeAbs" "3") as |abs|}}
+                {{abs.exercise}}
               {{/paper-select}}
             </div>
           </div>
         {{/if}}
       </div>
+
+      <!-- Save to Program Button -->
+      {{#paper-button onClick=(action "saveProgram")}}Save{{/paper-button}}
     </div>
 
 
