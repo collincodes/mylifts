@@ -126,7 +126,7 @@ p {
 }
 
 .content.left.cont {
-  background: url('/assets/images/you.jpg') center;
+  background: url('/assets/images/contact.jpeg') center;
   background-size: cover;
   background-position: right;
 }
@@ -208,6 +208,7 @@ p {
 
 @media (max-width: 1024px) {
   .menu {
+    cursor: pointer;
     background:#fff;
     z-index: 9999;
     position: fixed;

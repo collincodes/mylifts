@@ -7,13 +7,13 @@
   <div class="body">
     <div class="links">
       {{#link-to 'index'}}
-        main
+        <div class='link' {{action "naviToggle"}}>main</div>
       {{/link-to}}
-      {{#link-to 'about'}}
-        about
+      {{#link-to 'about' }}
+        <div class='link' {{action "naviToggle"}}>about</div>
       {{/link-to}}
       {{#link-to 'contact'}}
-        contact
+        <div class='link' {{action "naviToggle"}}>contact</div>
       {{/link-to}}
     </div>
     {{outlet}}
