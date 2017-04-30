@@ -6,8 +6,8 @@ export default Ember.Controller.extend({
     Ember.Object.create({goal: "Muscle Endurance"}),
     Ember.Object.create({goal: "Muscle Growth"}),
     Ember.Object.create({goal: "Strength"}),
-    Ember.Object.create({goal: "Power"}),
-    Ember.Object.create({goal: "Flexibility"})
+    // Ember.Object.create({goal: "Power"}),
+    // Ember.Object.create({goal: "Flexibility"})
   ]),
 
   // Array for Muscle groupings
