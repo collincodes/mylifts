@@ -199,7 +199,7 @@
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Iso Exercise 4" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 4" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
                 {{exercise}}
               {{/paper-select}}
               {{#paper-select class='flex-45' label="Iso Exercise 5" options=isoAbAd selected=abadIso onChange=(action (mut abadIso)) as |exercise|}}
@@ -579,7 +579,7 @@
       </div>
 
       <!-- Save to Program Button -->
-      {{#paper-button onClick=(action "saveProgram")}}Download{{/paper-button}}
+    <a onclick="HTMLtoPDF()">{{#paper-button}}Download{{/paper-button}}</a>
     </div>
 
 
@@ -592,7 +592,7 @@
 
 
     <!-- Howdy, this is your program! -->
-    <div class='program'>
+    <div id="HTMLtoPDF">
       {{#if (gt chosenGroups.length 2)}}
       <h1>{{chosenMuscleGroup1.group}}, {{chosenMuscleGroup2.group}}, and {{chosenMuscleGroup3.group}} Workout</h1>
       {{/if}}
@@ -603,7 +603,6 @@
       <table>
         <thead>
           <tr>
-            <th></th>
             <th>Exercise</th>
             <th>Sets</th>
             <th>Reps</th>
@@ -615,28 +614,24 @@
           <!-- PRIMARY CHEST / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Chest")) (gt chosenChest.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{chestCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{chestCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{chestCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{chestCore4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -644,21 +639,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Chest")) (eq chosenChest.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{chestCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{chestCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{chestCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -669,28 +661,24 @@
             <!-- PRIMARY CHEST / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Chest")) (gt chosenChest.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{chestCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{chestCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{chestCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{chestCore4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -698,21 +686,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Chest")) (eq chosenChest.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{chestCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{chestCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{chestCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -723,28 +708,24 @@
             <!-- PRIMARY CHEST / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Chest")) (gt chosenChest.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{chestCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{chestCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{chestCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{chestCore4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -752,21 +733,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Chest")) (eq chosenChest.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{chestCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{chestCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{chestCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -779,28 +757,24 @@
             <!-- PRIMARY BACK / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Back")) (gt chosenBack.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{backCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{backCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{backCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{backCore4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -808,21 +782,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Back")) (eq chosenBack.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{backCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{backCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{backCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -833,28 +804,24 @@
             <!-- PRIMARY BACK / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Back")) (gt chosenBack.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{backCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{backCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{backCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
-              <tr>
-                <td>4</td>
+              <tr>                
                 <td>{{backCore4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -862,21 +829,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Back")) (eq chosenBack.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{backCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{backCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{backCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -887,28 +851,24 @@
             <!-- PRIMARY BACK / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Back")) (gt chosenBack.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{backCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{backCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{backCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{backCore4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -916,21 +876,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Back")) (eq chosenBack.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{backCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{backCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{backCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -944,28 +901,24 @@
             <!-- PRIMARY SHOULDERS / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenDelt.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{deltCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{deltCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{deltCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{deltCore4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -973,21 +926,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenDelt.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{deltCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{deltCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{deltCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -998,28 +948,24 @@
             <!-- PRIMARY SHOULDERS / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenDelt.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{deltCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{deltCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{deltCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{deltCore4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1027,21 +973,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenDelt.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{deltCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{deltCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{deltCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1052,28 +995,24 @@
             <!-- PRIMARY DELT / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenDelt.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{deltCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{deltCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{deltCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{deltCore4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1081,21 +1020,18 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenDelt.length 3))}}
               <tr>
-                <td>1</td>
                 <td>{{deltCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{deltCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{deltCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1108,21 +1044,18 @@
             <!-- PRIMARY LEGS / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenLegs.length 2))}}
               <tr>
-                <td>1</td>
                 <td>{{legsCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{legsCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{legsCore3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1130,14 +1063,12 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenLegs.length 2))}}
               <tr>
-                <td>1</td>
                 <td>{{legsCore1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{legsCore2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1148,21 +1079,18 @@
             <!-- PRIMARY LEGS / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenLegs.length 2))}}
               <tr>
-                <td>1</td>
                 <td>{{legsCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{legsCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{legsCore3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1170,14 +1098,12 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenLegs.length 2))}}
               <tr>
-                <td>1</td>
                 <td>{{legsCore1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{legsCore2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1188,21 +1114,18 @@
             <!-- PRIMARY LEGS / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenLegs.length 2))}}
               <tr>
-                <td>1</td>
                 <td>{{legsCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{legsCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{legsCore3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1210,14 +1133,12 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenLegs.length 2))}}
               <tr>
-                <td>1</td>
                 <td>{{legsCore1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{legsCore2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1230,35 +1151,30 @@
             <!-- PRIMARY TRICEPS / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Triceps")) (gt chosenTris.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{triExerc1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{triExerc2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{triExerc3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{triExerc4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{triExerc5.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1266,28 +1182,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Triceps")) (eq chosenTris.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{triExerc1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{triExerc2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{triExerc3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{triExerc4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1298,35 +1210,30 @@
             <!-- PRIMARY TRICEPS / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Triceps")) (gt chosenTris.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{triExerc1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{triExerc2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{triExerc3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{triExerc4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{triExerc5.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1334,28 +1241,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Triceps")) (eq chosenTris.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{triExerc1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{triExerc2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{triExerc3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{triExerc4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1366,35 +1269,30 @@
             <!-- PRIMARY TRICEPS / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Triceps")) (gt chosenTris.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{triExerc1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{triExerc2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{triExerc3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{triExerc4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{triExerc5.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1402,28 +1300,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Triceps")) (eq chosenTris.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{triExerc1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{triExerc2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{triExerc3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{triExerc4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1436,35 +1330,30 @@
             <!-- PRIMARY BICEPS / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Biceps")) (gt chosenBis.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{biExerc1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{biExerc2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{biExerc3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{biExerc4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{biExerc5.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1472,28 +1361,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Biceps")) (eq chosenBis.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{biExerc1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{biExerc2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{biExerc3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{biExerc4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1504,35 +1389,30 @@
             <!-- PRIMARY BICEPS / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Biceps")) (gt chosenBis.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{biExerc1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{biExerc2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{biExerc3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{biExerc4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{biExerc5.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1540,28 +1420,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Biceps")) (eq chosenBis.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{biExerc1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{biExerc2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{biExerc3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{biExerc4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1572,35 +1448,30 @@
             <!-- PRIMARY BICEPS / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Biceps")) (gt chosenBis.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{biExerc1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{biExerc2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{biExerc3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{biExerc4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{biExerc5.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1608,28 +1479,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Biceps")) (eq chosenBis.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{biExerc1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{biExerc2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{biExerc3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{biExerc4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1642,35 +1509,30 @@
             <!-- PRIMARY ABDOMINALS / MUSCLE ENDURANCE -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Abdominals")) (gt chosenAbs.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{abExerc1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{abExerc2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{abExerc3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{abExerc4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{abExerc5.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1678,28 +1540,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Abdominals")) (eq chosenAbs.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{abExerc1.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{abExerc2.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{abExerc3.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
                 <td>:30 - :45</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{abExerc4.exercise}}</td>
                 <td>3</td>
                 <td>15</td>
@@ -1710,35 +1568,30 @@
             <!-- PRIMARY ABDOMINALS / MUSCLE GROWTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Abdominals")) (gt chosenAbs.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{abExerc1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{abExerc2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{abExerc3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{abExerc4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{abExerc5.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1746,28 +1599,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Abdominals")) (eq chosenAbs.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{abExerc1.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{abExerc2.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{abExerc3.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
                 <td>:30 - :90</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{abExerc4.exercise}}</td>
                 <td>3-4</td>
                 <td>12, 10, 8</td>
@@ -1778,35 +1627,30 @@
             <!-- PRIMARY ABDOMINALS / STRENGTH -->
             {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Abdominals")) (gt chosenAbs.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{abExerc1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{abExerc2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{abExerc3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{abExerc4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>5</td>
                 <td>{{abExerc5.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1814,28 +1658,24 @@
               </tr>
               {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Abdominals")) (eq chosenAbs.length 4))}}
               <tr>
-                <td>1</td>
                 <td>{{abExerc1.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>2</td>
                 <td>{{abExerc2.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>3</td>
                 <td>{{abExerc3.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
                 <td>1:30 - 2:00</td>
               </tr>
               <tr>
-                <td>4</td>
                 <td>{{abExerc4.exercise}}</td>
                 <td>5</td>
                 <td>5</td>
@@ -1865,21 +1705,18 @@
             <!-- SECONDARY CHEST / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Chest")) (gt chosenChest.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{chestCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{chestCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{chestCore3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -1887,14 +1724,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Chest")) (eq chosenChest.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{chestCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{chestCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -1905,21 +1740,18 @@
               <!-- SECONDARY CHEST / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Chest")) (gt chosenChest.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{chestCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{chestCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{chestCore3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -1927,14 +1759,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Chest")) (eq chosenChest.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{chestCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{chestCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -1945,21 +1775,18 @@
               <!-- SECONDARY CHEST / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Chest")) (gt chosenChest.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{chestCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{chestCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{chestCore3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -1967,14 +1794,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Chest")) (eq chosenChest.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{chestCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{chestCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -1987,21 +1812,18 @@
               <!-- SECONDARY BACK / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Back")) (gt chosenBack.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{backCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{backCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{backCore3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2009,14 +1831,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Back")) (eq chosenBack.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{backCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{backCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2027,21 +1847,18 @@
               <!-- SECONDARY BACK / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Back")) (gt chosenBack.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{backCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{backCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{backCore3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2049,14 +1866,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Back")) (eq chosenBack.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{backCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{backCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2067,21 +1882,18 @@
               <!-- SECONDARY BACK / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Back")) (gt chosenBack.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{backCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{backCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{backCore3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2089,14 +1901,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Back")) (eq chosenBack.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{backCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{backCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2109,21 +1919,18 @@
               <!-- SECONDARY SHOULDERS / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders")) (gt chosenDelt.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{deltCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{deltCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{deltCore3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2131,14 +1938,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders")) (eq chosenDelt.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{deltCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{deltCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2149,21 +1954,18 @@
               <!-- SECONDARY SHOULDERS / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders")) (gt chosenDelt.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{deltCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{deltCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{deltCore3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2171,14 +1973,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders")) (eq chosenDelt.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{deltCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{deltCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2189,21 +1989,18 @@
               <!-- SECONDARY DELT / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Shoulders")) (gt chosenDelt.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{deltCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{deltCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{deltCore3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2211,14 +2008,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Shoulders")) (eq chosenDelt.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{deltCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{deltCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2231,21 +2026,18 @@
               <!-- SECONDARY LEGS / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Legs & Glutes")) (gt chosenLegs.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{legsCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{legsCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{legsCore3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2253,14 +2045,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Legs & Glutes")) (eq chosenLegs.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{legsCore1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{legsCore2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2271,21 +2061,18 @@
               <!-- SECONDARY LEGS / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Legs & Glutes")) (gt chosenLegs.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{legsCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{legsCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{legsCore3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2293,14 +2080,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Legs & Glutes")) (eq chosenLegs.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{legsCore1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{legsCore2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2311,21 +2096,18 @@
               <!-- SECONDARY LEGS / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Legs & Glutes")) (gt chosenLegs.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{legsCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{legsCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{legsCore3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2333,14 +2115,12 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Legs & Glutes")) (eq chosenLegs.length 2))}}
                 <tr>
-                  <td>1</td>
                   <td>{{legsCore1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{legsCore2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2353,28 +2133,24 @@
               <!-- SECONDARY TRICEPS / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Triceps")) (gt chosenTris.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{triExerc1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{triExerc2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{triExerc3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{triExerc4.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2382,21 +2158,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Triceps")) (eq chosenTris.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{triExerc1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{triExerc2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{triExerc3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2407,28 +2180,24 @@
               <!-- SECONDARY TRICEPS / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Triceps")) (gt chosenTris.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{triExerc1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{triExerc2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{triExerc3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{triExerc4.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2436,21 +2205,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Triceps")) (eq chosenTris.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{triExerc1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{triExerc2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{triExerc3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2461,28 +2227,24 @@
               <!-- SECONDARY TRICEPS / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Triceps")) (gt chosenTris.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{triExerc1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{triExerc2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{triExerc3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{triExerc4.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2490,21 +2252,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Triceps")) (eq chosenTris.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{triExerc1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{triExerc2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{triExerc3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2519,28 +2278,24 @@
               <!-- SECONDARY BICEPS / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Biceps")) (gt chosenBis.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{biExerc1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{biExerc2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{biExerc3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{biExerc4.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2548,21 +2303,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Biceps")) (eq chosenBis.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{biExerc1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{biExerc2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{biExerc3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2573,28 +2325,24 @@
               <!-- SECONDARY BICEPS / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Biceps")) (gt chosenBis.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{biExerc1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{biExerc2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{biExerc3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{biExerc4.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2602,21 +2350,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Biceps")) (eq chosenBis.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{biExerc1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{biExerc2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{biExerc3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2627,28 +2372,24 @@
               <!-- SECONDARY BICEPS / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Biceps")) (gt chosenBis.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{biExerc1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{biExerc2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{biExerc3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{biExerc4.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2656,21 +2397,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Biceps")) (eq chosenBis.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{biExerc1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{biExerc2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{biExerc3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2685,28 +2423,24 @@
               <!-- SECONDARY ABDOMINALS / MUSCLE ENDURANCE -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Abdominals")) (gt chosenAbs.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{abExerc1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{abExerc2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{abExerc3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{abExerc4.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2714,21 +2448,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Abdominals")) (eq chosenAbs.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{abExerc1.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{abExerc2.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
                   <td>:30 - :45</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{abExerc3.exercise}}</td>
                   <td>3</td>
                   <td>15</td>
@@ -2739,28 +2470,24 @@
               <!-- SECONDARY ABDOMINALS / MUSCLE GROWTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Abdominals")) (gt chosenAbs.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{abExerc1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{abExerc2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{abExerc3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{abExerc4.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2768,21 +2495,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Abdominals")) (eq chosenAbs.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{abExerc1.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{abExerc2.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
                   <td>:30 - :90</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{abExerc3.exercise}}</td>
                   <td>3-4</td>
                   <td>12, 10, 8</td>
@@ -2793,28 +2517,24 @@
               <!-- SECONDARY ABDOMINALS / STRENGTH -->
               {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Abdominals")) (gt chosenAbs.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{abExerc1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{abExerc2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{abExerc3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>4</td>
                   <td>{{abExerc4.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2822,21 +2542,18 @@
                 </tr>
                 {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Abdominals")) (eq chosenAbs.length 3))}}
                 <tr>
-                  <td>1</td>
                   <td>{{abExerc1.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td>{{abExerc2.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
                   <td>1:30 - 2:00</td>
                 </tr>
                 <tr>
-                  <td>3</td>
                   <td>{{abExerc3.exercise}}</td>
                   <td>5</td>
                   <td>5</td>
@@ -2846,9 +2563,444 @@
 
 
 
+
+
+              <!-- ISO TRAINING  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+              <!-- CHHHEEEEEEEESSSSTTTTTTT -->
+              <!-- ISO CHEST / MUSCLE ENDURANCE -->
+                {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Chest")) (gt chosenIsoChest.length 2))}}
+                  <tr>
+                    <td>{{chestIso1.isoexercise}}</td>
+                    <td>3</td>
+                    <td>20</td>
+                    <td>:30</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso2.isoexercise}}</td>
+                    <td>3</td>
+                    <td>20</td>
+                    <td>:30</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso3.isoexercise}}</td>
+                    <td>3</td>
+                    <td>20</td>
+                    <td>:30</td>
+                  </tr>
+                  {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Chest")) (eq chosenIsoChest.length 2))}}
+                  <tr>
+                    <td>{{chestIso1.isoexercise}}</td>
+                    <td>3</td>
+                    <td>20</td>
+                    <td>:30</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso2.isoexercise}}</td>
+                    <td>3</td>
+                    <td>20</td>
+                    <td>:30</td>
+                  </tr>
+                {{/if}}
+
+                <!-- PRIMARY CHEST / MUSCLE GROWTH -->
+                {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Chest")) (gt chosenIsoChest.length 2))}}
+                  <tr>
+                    <td>{{chestIso1.isoexercise}}</td>
+                    <td>3-4</td>
+                    <td>10</td>
+                    <td>:30 - :60</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso2.isoexercise}}</td>
+                    <td>3-4</td>
+                    <td>10</td>
+                    <td>:30 - :60</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso3.isoexercise}}</td>
+                    <td>3-4</td>
+                    <td>10</td>
+                    <td>:30 - :60</td>
+                  </tr>
+                  {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Chest")) (eq chosenIsoChest.length 2))}}
+                  <tr>
+                    <td>{{chestCore1.isoexercise}}</td>
+                    <td>3-4</td>
+                    <td>10</td>
+                    <td>:30 - :60</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestCore2.isoexercise}}</td>
+                    <td>3-4</td>
+                    <td>10</td>
+                    <td>:30 - :60</td>
+                  </tr>
+                {{/if}}
+
+                <!-- PRIMARY CHEST / STRENGTH -->
+                {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Chest")) (gt chosenIsoChest.length 2))}}
+                  <tr>
+
+                    <td>{{chestIso1.isoexercise}}</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>:60 - :90</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso2.isoexercise}}</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>:60 - :90</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso3.isoexercise}}</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>:60 - :90</td>
+                  </tr>
+                  {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Chest")) (eq chosenIsoChest.length 2))}}
+                  <tr>
+                    <td>{{chestIso1.isoexercise}}</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>:60 - :90</td>
+                  </tr>
+                  <tr>
+                    <td>{{chestIso2.isoexercise}}</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>:60 - :90</td>
+                  </tr>
+                {{/if}}
+
+
+                <!-- BAAAAACCCCCKKKKKKK -->
+                <!-- ISO BACK / MUSCLE ENDURANCE -->
+                  {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Back")) (gt chosenIsoBack.length 2))}}
+                    <tr>
+                      <td>{{backIso1.isoexercise}}</td>
+                      <td>3</td>
+                      <td>20</td>
+                      <td>:30</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso2.isoexercise}}</td>
+                      <td>3</td>
+                      <td>20</td>
+                      <td>:30</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso3.isoexercise}}</td>
+                      <td>3</td>
+                      <td>20</td>
+                      <td>:30</td>
+                    </tr>
+                    {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Back")) (eq chosenIsoBack.length 2))}}
+                    <tr>
+                      <td>{{backIso1.isoexercise}}</td>
+                      <td>3</td>
+                      <td>20</td>
+                      <td>:30</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso2.isoexercise}}</td>
+                      <td>3</td>
+                      <td>20</td>
+                      <td>:30</td>
+                    </tr>
+                  {{/if}}
+
+                  <!-- PRIMARY back / MUSCLE GROWTH -->
+                  {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Back")) (gt chosenIsoBack.length 2))}}
+                    <tr>
+                      <td>{{backIso1.isoexercise}}</td>
+                      <td>3-4</td>
+                      <td>10</td>
+                      <td>:30 - :60</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso2.isoexercise}}</td>
+                      <td>3-4</td>
+                      <td>10</td>
+                      <td>:30 - :60</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso3.isoexercise}}</td>
+                      <td>3-4</td>
+                      <td>10</td>
+                      <td>:30 - :60</td>
+                    </tr>
+                    {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Back")) (eq chosenIsoBack.length 2))}}
+                    <tr>
+                      <td>{{backIso1.isoexercise}}</td>
+                      <td>3-4</td>
+                      <td>10</td>
+                      <td>:30 - :60</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso2.isoexercise}}</td>
+                      <td>3-4</td>
+                      <td>10</td>
+                      <td>:30 - :60</td>
+                    </tr>
+                  {{/if}}
+
+                  <!-- PRIMARY back / STRENGTH -->
+                  {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Back")) (gt chosenIsoBack.length 2))}}
+                    <tr>
+                      <td>{{backIso1.isoexercise}}</td>
+                      <td>4</td>
+                      <td>6</td>
+                      <td>:60 - :90</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso2.isoexercise}}</td>
+                      <td>4</td>
+                      <td>6</td>
+                      <td>:60 - :90</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso3.isoexercise}}</td>
+                      <td>4</td>
+                      <td>6</td>
+                      <td>:60 - :90</td>
+                    </tr>
+                    {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Back")) (eq chosenIsoBack.length 2))}}
+                    <tr>
+                      <td>{{backIso1.isoexercise}}</td>
+                      <td>4</td>
+                      <td>6</td>
+                      <td>:60 - :90</td>
+                    </tr>
+                    <tr>
+                      <td>{{backIso2.isoexercise}}</td>
+                      <td>4</td>
+                      <td>6</td>
+                      <td>:60 - :90</td>
+                    </tr>
+                  {{/if}}
+
+
+                  <!-- SSHHOOUUUUUULLLLLLDDDEEEEEEERRRRRSSSS -->
+                  <!-- ISO SHOULDERS / MUSCLE ENDURANCE -->
+                    {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
+                      <tr>
+                        <td>{{postIso}}</td>
+                        <td>3</td>
+                        <td>20</td>
+                        <td>:30</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso1.isoexercise}}</td>
+                        <td>3</td>
+                        <td>20</td>
+                        <td>:30</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso2.isoexercise}}</td>
+                        <td>3</td>
+                        <td>20</td>
+                        <td>:30</td>
+                      </tr>
+                      {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
+                      <tr>
+                        <td>{{postIso}}</td>
+                        <td>3</td>
+                        <td>20</td>
+                        <td>:30</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso1.isoexercise}}</td>
+                        <td>3</td>
+                        <td>20</td>
+                        <td>:30</td>
+                      </tr>
+                    {{/if}}
+
+                    <!-- ISO SHOULDERS / MUSCLE GROWTH -->
+                    {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
+                      <tr>
+                        <td>{{postIso}}</td>
+                        <td>3-4</td>
+                        <td>10</td>
+                        <td>:30 - :60</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso1.isoexercise}}</td>
+                        <td>3-4</td>
+                        <td>10</td>
+                        <td>:30 - :60</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso2.isoexercise}}</td>
+                        <td>3-4</td>
+                        <td>10</td>
+                        <td>:30 - :60</td>
+                      </tr>
+                      {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
+                      <tr>
+                        <td>{{postIso}}</td>
+                        <td>3-4</td>
+                        <td>10</td>
+                        <td>:30 - :60</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso1.isoexercise}}</td>
+                        <td>3-4</td>
+                        <td>10</td>
+                        <td>:30 - :60</td>
+                      </tr>
+                    {{/if}}
+
+                    <!-- ISO SHOULDERS / STRENGTH -->
+                    {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
+                      <tr>
+                        <td>{{postIso}}</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>:60 - :90</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso1.isoexercise}}</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>:60 - :90</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso2.isoexercise}}</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>:60 - :90</td>
+                      </tr>
+                      {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
+                      <tr>
+                        <td>{{postIso}}</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>:60 - :90</td>
+                      </tr>
+                      <tr>
+                        <td>{{antIso1.isoexercise}}</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>:60 - :90</td>
+                      </tr>
+                    {{/if}}
+
+
+
+                    <!-- LLEEEEEEEEEGGGGGGGGSSSSSS & GLLLLLLUUUUUUUUUTTTTTEEEEESSSS ----------->
+                    <!-- ISO LEGS / MUSCLE ENDURANCE -->
+                      {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenQuads.length 3))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>:30</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>:30</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>:30</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenIsoDelt.length 1))}}
+                        <tr>
+                          <td>{{postIso}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>:30</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso1.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>:30</td>
+                        </tr>
+                      {{/if}}
+
+                      <!-- PRIMARY back / MUSCLE GROWTH -->
+                      {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenIsoDelt.length 1))}}
+                        <tr>
+                          <td>{{postIso}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>:30 - :60</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso1.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>:30 - :60</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso2.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>:30 - :60</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenIsoDelt.length 1))}}
+                        <tr>
+                          <td>{{postIso}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>:30 - :60</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso1.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>:30 - :60</td>
+                        </tr>
+                      {{/if}}
+
+                      <!-- PRIMARY back / STRENGTH -->
+                      {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenIsoDelt.length 1))}}
+                        <tr>
+                          <td>{{postIso}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>:60 - :90</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso1.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>:60 - :90</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso2.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>:60 - :90</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenIsoDelt.length 1))}}
+                        <tr>
+                          <td>{{postIso}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>:60 - :90</td>
+                        </tr>
+                        <tr>
+                          <td>{{antIso1.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>:60 - :90</td>
+                        </tr>
+                      {{/if}}
+
           </tbody>
       </table>
     </div>
+
+    <script src="{{rootURL}}assets/js/pdfFromHTML.js"></script>
+    <script src="{{rootURL}}assets/js/jspdf.js"></script>
 
     {{outlet}}
 

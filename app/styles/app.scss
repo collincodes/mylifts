@@ -214,7 +214,20 @@ table {
 }
 
 
-// Media
+// Media\
+@page {
+  table {
+    width: 85%;
+    margin: auto;
+    thead {
+      background: #280000;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+
+}
+
 
 @media (max-width: 1024px) {
   .menu {

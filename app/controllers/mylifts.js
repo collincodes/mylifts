@@ -239,10 +239,7 @@ export default Ember.Controller.extend({
     },
 
     // Save Program
-    saveProgram() {
-      alert('Almost there!');
-    }
-  },
+},
 
   // Arrays for the Muscle Endurance, Growth and Strength workout plans
 
@@ -255,6 +252,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Incline DB Bench Press"}),
     Ember.Object.create({exercise: "Pushups"}),
     Ember.Object.create({exercise: "Dips"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   compChest1: Ember.computed.filter('compChest', function(item) {
     return item !== this.get('chestCore2') && item !== this.get('chestCore3') && item !== this.get('chestCore4');
@@ -275,6 +273,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({isoexercise: "Cable Crossover"}),
     Ember.Object.create({isoexercise: "Low Cable Crossover"}),
     Ember.Object.create({isoexercise: "Seated Chest Flyes"}),
+    Ember.Object.create({isoexercise: ""}),
   ]),
   isoChest1: Ember.computed.filter('isoChest', function(item) {
     return item !== this.get('chestIso2') && item !== this.get('chestIso3');
@@ -297,6 +296,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Bent Over BB Row"}),
     Ember.Object.create({exercise: "Bent Over DB Row"}),
     Ember.Object.create({exercise: "Deadlifts"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   compBack1: Ember.computed.filter('compBack', function(item) {
     return item !== this.get('backCore2') && item !== this.get('backCore3') && item !== this.get('backCore4');
@@ -320,6 +320,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({isoexercise: "DB Shrugs"}),
     Ember.Object.create({isoexercise: "Back Extensions"}),
     Ember.Object.create({isoexercise: "Supermans"}),
+    Ember.Object.create({isoexercise: ""}),
   ]),
   isoBack1: Ember.computed.filter('isoBack', function(item) {
     return item !== this.get('backIso2') && item !== this.get('backIso3');
@@ -339,6 +340,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Seated DB Press"}),
     Ember.Object.create({exercise: "Single Arm Linear Jammer"}),
     Ember.Object.create({exercise: "Alternating DB Press"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   compShoulder1: Ember.computed.filter('compShoulder', function(item) {
     return item !== this.get('deltCore2') && item !== this.get('deltCore3') && item !== this.get('deltCore4');
@@ -354,13 +356,14 @@ export default Ember.Controller.extend({
   }),
 
   chosenIsoDelt: Ember.A([]),
-  postShoulder: Ember.A(["Reverse Machine Flyes", "Reverse Cable Flyes", "T-Pulls"]),
+  postShoulder: Ember.A(["Reverse Machine Flyes", "Reverse Cable Flyes", "T-Pulls", '']),
   antShoulder: Ember.A([
     Ember.Object.create({isoexercise: "Front DB Raise"}),
     Ember.Object.create({isoexercise: "Front Cable Raise"}),
     Ember.Object.create({isoexercise: "Front Kettlebell Raise"}),
     Ember.Object.create({isoexercise: "Lateral DB Raise"}),
     Ember.Object.create({isoexercise: "Upright Row"}),
+    Ember.Object.create({isoexercise: ""}),
   ]),
   antShoulder1: Ember.computed.filter('antShoulder', function(item) {
     return item !== this.get('antIso2');
@@ -379,6 +382,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Romanian Deadlifts"}),
     Ember.Object.create({exercise: "Sumo Deadlifts"}),
     Ember.Object.create({exercise: "Front Squats"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   compLegs1: Ember.computed.filter('compLegs', function(item) {
     return item !== this.get('legsCore2') && item !== this.get('legsCore3');
@@ -391,14 +395,15 @@ export default Ember.Controller.extend({
   }),
 
   chosenQuads: Ember.A([]),
-  isoGlutes: Ember.A(["Cable Kickback", "Bridges", "Single-Leg Glute Bridge", "Curtsy Lunges"]),
-  isoAbAd: Ember.A(["Thigh Abductors", "Thigh Adductors", "Banded Lateral Shuffle", "Fire Hydrants"]),
+  isoGlutes: Ember.A(["Cable Kickback", "Bridges", "Single-Leg Glute Bridge", "Curtsy Lunges", '']),
+  isoAbAd: Ember.A(["Thigh Abductors", "Thigh Adductors", "Banded Lateral Shuffle", "Fire Hydrants", '']),
   isoQuadsHams: Ember.A([
     Ember.Object.create({isoexercise: "Lunges"}),
     Ember.Object.create({isoexercise: "Goblet Squats"}),
     Ember.Object.create({isoexercise: "Seated Leg Extensions"}),
     Ember.Object.create({isoexercise: "Seated Leg Curls"}),
     Ember.Object.create({isoexercise: "Standing Cable Leg Curls"}),
+    Ember.Object.create({isoexercise: ""}),
   ]),
   isoQuadsHams1: Ember.computed.filter('isoQuadsHams', function(item) {
     return item !== this.get('legIso2') && item !== this.get('legIso3');
@@ -421,6 +426,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Single-Arm Pulldowns"}),
     Ember.Object.create({exercise: "Machine Tricep Extensions"}),
     Ember.Object.create({exercise: "Assisted Dips"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   isTris1: Ember.computed.filter('isTris', function(item) {
     return item !== this.get('triExerc2') && item !== this.get('triExerc3') && item !== this.get('triExerc4') && item !== this.get('triExerc5');
@@ -449,6 +455,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Rope Cable Hammer Curls"}),
     Ember.Object.create({exercise: "Spider Curls"}),
     Ember.Object.create({exercise: "Machine Bicep Curls"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   isBis1: Ember.computed.filter('isBis', function(item) {
     return item !== this.get('biExerc2') && item !== this.get('biExerc3') && item !== this.get('biExerc4') && item !== this.get('biExerc5');
@@ -480,6 +487,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({exercise: "Pallof Presses"}),
     Ember.Object.create({exercise: "Oblique Crunch"}),
     Ember.Object.create({exercise: "Alternate Heel Touches"}),
+    Ember.Object.create({exercise: ""}),
   ]),
   isAbs1: Ember.computed.filter('isAbs', function(item) {
     return item !== this.get('abExerc2') && item !== this.get('abExerc3') && item !== this.get('abExerc4') && item !== this.get('abExerc5');
