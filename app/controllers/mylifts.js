@@ -238,7 +238,8 @@ export default Ember.Controller.extend({
       Ember.$('.randomChoice').toggle(1000);
     },
 
-    // Save Program
+    // Show Program
+
 },
 
   // Arrays for the Muscle Endurance, Growth and Strength workout plans

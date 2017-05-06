@@ -28,6 +28,7 @@ a {
     text-align: center;
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
     line-height: 1.5;
+    overflow: auto;
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 }
 
 a {
-    color: #280000;
+    color: #002528;
     text-decoration: none;
 }
 
@@ -56,7 +57,7 @@ p {
   position: fixed;
   bottom: 2.5em;
   left: 3.5em;
-  color: #280000;
+  color: #002528;
 }
 
 /**
@@ -76,8 +77,8 @@ p {
  }
 
  .menu:hover {
-   border-bottom: solid 2px #420100;
-   background: #280000;
+   border-bottom: solid 2px #001a1c;
+   background: #002528;
    transition: 3000;
    color: #fff;
  }
@@ -85,7 +86,7 @@ p {
 .links {
   position: fixed;
   display: none;
-  background: #280000;
+  background: #002528;
   height: 96.5vh;
   width: 43%;
   a {
@@ -95,6 +96,21 @@ p {
     top: 37vh;
     display: block;
     color: #fff;
+  }
+}
+
+#program {
+  margin: 10px auto;
+  position: fixed;
+  width: 40.8%;
+  text-align: center;
+  table {
+    width: 100%;
+  }
+  thead {
+    background: #002528;
+    color: #fff;
+    font-weight: 500;
   }
 }
 
@@ -159,7 +175,6 @@ p {
 .left {
     height: 96.5vh;
     text-align: left;
-    width: 43%;
     float: left;
     padding: 20px;
 }
@@ -192,7 +207,7 @@ p {
   padding: 7px 22px 7px;
   text-decoration: none;
   color: #fff;
-  background: #280000;
+  background: #002528;
   border-radius: 5px;
   border: none;
   font-size: 16px;
@@ -203,31 +218,9 @@ p {
   color: #000;
 }
 
-table {
-  width: 85%;
-  margin: auto;
-  thead {
-    background: #280000;
-    color: #fff;
-    font-weight: 500;
-  }
-}
 
 
 // Media\
-@page {
-  table {
-    width: 85%;
-    margin: auto;
-    thead {
-      background: #280000;
-      color: #fff;
-      font-weight: 500;
-    }
-  }
-
-}
-
 
 @media (max-width: 1024px) {
   .menu {
