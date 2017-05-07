@@ -3327,7 +3327,7 @@
       <div class='layout-row layout-align-center' style="text-align: center">
       {{#paper-select class="flex-30" label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
         {{#if fitness.goal}}
-          {{fitness.goal}}
+          {{#scroll-to href='.muscleGroup' duration=2000 easing='swing' offset=-60}}{{fitness.goal}}{{/scroll-to}}
         {{/if}}
       {{/paper-select}}
       </div>
@@ -3343,10 +3343,10 @@
       <h4>Choose 2 or 3 muscle groups you'd like to focus on for today!</h4>
       <div class="layout-row layout-align-space-between" style="padding-top: 15px;">
         {{#paper-select class="flex-30" label="Primary Muscle" options=firstGroup selected=chosenMuscleGroup1 onChange=(action "changeGroups" "1") as |muscle|}}
-          {{muscle.group}}
+          {{#scroll-to href='.exerciseChoice' duration=2000 easing='swing' offset=-60}}{{muscle.group}}{{/scroll-to}}
         {{/paper-select}}
         {{#paper-select class="flex-30" label="Secondary Muscle" options=secondGroup selected=chosenMuscleGroup2 onChange=(action "changeGroups" "2") as |muscle|}}
-          {{muscle.group}}
+          {{#scroll-to href='.exerciseChoice' duration=2000 easing='swing' offset=-60}}{{muscle.group}}{{/scroll-to}}
         {{/paper-select}}
         {{#paper-select class="flex-30" label="(Optional) Assistive Muscle" options=thirdGroup selected=chosenMuscleGroup3 onChange=(action "changeGroups" "3") as |muscle|}}
           {{muscle.group}}
@@ -3363,7 +3363,7 @@
       <h1>{{retRandMessage2}}</h1>
       <h4>Now choose to either manually select exercises, or generate random exercises for your program.</h4>
       <div class='layout-row layout-align-center' style='padding-top: 15px;'>
-        {{#paper-button onClick=(action "clickManual")}}Manual{{/paper-button}}
+        {{#scroll-to href='.manualChoice' duration=2000 easing='swing' offset=-60}}{{#paper-button onClick=(action "clickManual")}}Manual{{/paper-button}}{{/scroll-to}}
         {{#paper-button disabled=true onClick=(action "clickRandom")}}Random{{/paper-button}}
       </div>
     </div>

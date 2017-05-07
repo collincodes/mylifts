@@ -230,7 +230,7 @@ export default Ember.Controller.extend({
 
     // Manual Choice Appears
     clickManual() {
-      Ember.$('.manualChoice').toggle(1000);
+      Ember.$('.manualChoice').slideDown(1000);
     },
 
     // Random Program Appears
@@ -241,7 +241,7 @@ export default Ember.Controller.extend({
     // Show Program
 
     showProgram() {
-      if ($(window).width() < 1024) {
+      if (Ember.$(window).width() < 1024) {
         Ember.$('.content.left.home').toggle();
         Ember.$('.content.right.home').hide();
       }
