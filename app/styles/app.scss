@@ -89,6 +89,7 @@ p {
   background: #002528;
   height: 96.5vh;
   width: 43%;
+  z-index: 9998;
   a {
     position: relative;
     right: 0;
@@ -100,6 +101,7 @@ p {
 }
 
 #program {
+  z-index: 9990;
   margin: 10px auto;
   position: fixed;
   width: 40.8%;
@@ -139,12 +141,14 @@ p {
 .content.left.about {
   background: url('/assets/images/hey.jpeg') center;
   background-size: cover;
+  width: 43%;
 }
 
 .content.left.cont {
   background: url('/assets/images/contact.jpeg') center;
   background-size: cover;
   background-position: right;
+  width: 43%;
 }
 
 .jumbo.about {
@@ -189,7 +193,7 @@ p {
     float: right;
 }
 
-.content.right.home {
+.content.right {
   min-height: 96.5vh;
 }
 
@@ -218,6 +222,9 @@ p {
   color: #000;
 }
 
+#btn_program {
+  display: none;
+}
 
 
 // Media\
@@ -237,16 +244,15 @@ p {
   }
   .content.left {
     display: none;
+    width: 100%;
   }
   .content.right {
     width: 100%;
+    min-height: auto;
+    border: none;
   }
-  .links {
-    z-index: 9998;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
+  .content.left.home {
+    padding: 0;
   }
   .content.right.home {
     margin-top: 44px;
@@ -258,20 +264,36 @@ p {
     background-size: cover;
     height: 35vh;
   }
-  .content.right {
-    height: auto !important;
+  .content.right.about, .content.right.cont {
+    height: auto;
   }
   .jumbo.about, .jumbo.cont {
     top: 0;
+  }
+  .links {
+    z-index: 9998;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
   }
   .md-select {
     display: block;
   }
   .flex-30, .flex-45 {
-    min-width: 60%;
+    min-width: 75%;
   }
   .layout-row {
     display: block;
+  }
+  #program {
+    width:100%;
+    padding: 0 20px 20px 20px;
+    top: 5em;
+  }
+  #btn_program {
+    display: block;
+    margin: auto;
   }
 }
 

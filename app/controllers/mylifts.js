@@ -240,6 +240,12 @@ export default Ember.Controller.extend({
 
     // Show Program
 
+    showProgram() {
+      if ($(window).width() < 1024) {
+        Ember.$('.content.left.home').toggle();
+        Ember.$('.content.right.home').hide();
+      }
+    },
 },
 
   // Arrays for the Muscle Endurance, Growth and Strength workout plans
