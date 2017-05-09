@@ -244,6 +244,7 @@ export default Ember.Controller.extend({
       if (Ember.$(window).width() < 1024) {
         Ember.$('.content.left.home').toggle();
         Ember.$('.content.right.home').hide();
+        Ember.$('.contact').hide();
       }
     },
 
