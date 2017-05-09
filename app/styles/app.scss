@@ -1,5 +1,6 @@
 @import 'ember-paper';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 /**
  * Base Elements
  */
@@ -47,6 +48,10 @@ p {
     margin-bottom: 15px;
 }
 
+h1 {
+  font-family: 'Architects Daughter', cursive;
+}
+
 .container {
   padding: 0;
   margin: 0;
@@ -58,6 +63,20 @@ p {
   bottom: 2.5em;
   left: 3.5em;
   color: #002528;
+}
+
+.back_btn {
+  position: fixed;
+  bottom: 2.5em;
+  left: 37%;
+  color: #002528;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+  left: 88%;
+  font-weight: bolder;
 }
 
 /**
@@ -100,6 +119,28 @@ p {
   }
 }
 
+.logo {
+  background-image: url('/assets/images/mylift.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
+  height: 200px;
+}
+
+#program_logo {
+  background-image: url('/assets/images/mlprogram.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
+  height: 100px;
+}
+
+.jumbo.welcome {
+  padding: 20px 20px 50px 20px;
+}
+
 #program {
   z-index: 9990;
   margin: 10px auto;
@@ -108,11 +149,16 @@ p {
   text-align: center;
   table {
     width: 100%;
+    tbody{
+      tr {
+        height: 50px;
+      }
+    }
   }
   thead {
     background: #002528;
     color: #fff;
-    font-weight: 500;
+    font-weight: 200 !important;
   }
 }
 

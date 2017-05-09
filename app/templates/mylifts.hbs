@@ -2,9 +2,7 @@
   <div class='content left home'>
 
     <div id="program">
-      {{#if (lt chosenGroups.length 2)}}
-      <h1>Your MyLift Program</h1>
-      {{/if}}
+      <div id='program_logo'></div>
       {{#if (gt chosenGroups.length 2)}}
       <h1>{{chosenMuscleGroup1.group}}, {{chosenMuscleGroup2.group}}, and {{chosenMuscleGroup3.group}} Workout</h1>
       {{/if}}
@@ -2201,7 +2199,7 @@
                   <!-- ISO SHOULDERS / MUSCLE ENDURANCE -->
                     {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
                       <tr>
-                        <td>{{postIso}}</td>
+                        <td>{{postIso.isoexercise}}</td>
                         <td>3</td>
                         <td>20</td>
                         <td>30 s</td>
@@ -2220,7 +2218,7 @@
                       </tr>
                       {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
                       <tr>
-                        <td>{{postIso}}</td>
+                        <td>{{postIso.isoexercise}}</td>
                         <td>3</td>
                         <td>20</td>
                         <td>30 s</td>
@@ -2236,7 +2234,7 @@
                     <!-- ISO SHOULDERS / MUSCLE GROWTH -->
                     {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
                       <tr>
-                        <td>{{postIso}}</td>
+                        <td>{{postIso.isoexercise}}</td>
                         <td>3-4</td>
                         <td>10</td>
                         <td>30 - 60 s</td>
@@ -2255,7 +2253,7 @@
                       </tr>
                       {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
                       <tr>
-                        <td>{{postIso}}</td>
+                        <td>{{postIso.isoexercise}}</td>
                         <td>3-4</td>
                         <td>10</td>
                         <td>30 - 60 s</td>
@@ -2271,7 +2269,7 @@
                     <!-- ISO SHOULDERS / STRENGTH -->
                     {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
                       <tr>
-                        <td>{{postIso}}</td>
+                        <td>{{postIso.isoexercise}}</td>
                         <td>4</td>
                         <td>6</td>
                         <td>60 - 90 s</td>
@@ -2290,7 +2288,7 @@
                       </tr>
                       {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
                       <tr>
-                        <td>{{postIso}}</td>
+                        <td>{{postIso.isoexercise}}</td>
                         <td>4</td>
                         <td>6</td>
                         <td>60 - 90 s</td>
@@ -2306,7 +2304,7 @@
 
                     <!-- LLEEEEEEEEEGGGGGGGGSSSSSS & GLLLLLLUUUUUUUUUTTTTTEEEEESSSS ----------->
                     <!-- ISO LEGS / MUSCLE ENDURANCE -->
-                    <!--  {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenQuads.length 3))}}
+                    {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (and (and gluteIso abadIso) (eq chosenQuads.length 3)))}}
                         <tr>
                           <td>{{legIso1.isoexercise}}</td>
                           <td>3</td>
@@ -2325,15 +2323,58 @@
                           <td>20</td>
                           <td>30 s</td>
                         </tr>
-                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenIsoDelt.length 1))}}
                         <tr>
-                          <td>{{postIso}}</td>
+                          <td>{{gluteIso.isoexercise}}</td>
                           <td>3</td>
                           <td>20</td>
                           <td>30 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso1.isoexercise}}</td>
+                          <td>{{abadIso.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (and (and gluteIso true) (eq chosenQuads.length 3)))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{gluteIso.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenQuads.length 3))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>3</td>
+                          <td>20</td>
+                          <td>30 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
                           <td>3</td>
                           <td>20</td>
                           <td>30 s</td>
@@ -2341,34 +2382,77 @@
                       {{/if}}
 
                       <!-- ISO LEGS / MUSCLE GROWTH -->
-                      <!-- {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenIsoDelt.length 1))}}
+                      {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (and (and gluteIso abadIso) (eq chosenQuads.length 3)))}}
                         <tr>
-                          <td>{{postIso}}</td>
+                          <td>{{legIso1.isoexercise}}</td>
                           <td>3-4</td>
                           <td>10</td>
                           <td>30 - 60 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso1.isoexercise}}</td>
+                          <td>{{legIso2.isoexercise}}</td>
                           <td>3-4</td>
                           <td>10</td>
                           <td>30 - 60 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso2.isoexercise}}</td>
-                          <td>3-4</td>
-                          <td>10</td>
-                          <td>30 - 60 s</td>
-                        </tr>
-                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenIsoDelt.length 1))}}
-                        <tr>
-                          <td>{{postIso}}</td>
+                          <td>{{legIso3.isoexercise}}</td>
                           <td>3-4</td>
                           <td>10</td>
                           <td>30 - 60 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso1.isoexercise}}</td>
+                          <td>{{gluteIso.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{abadIso.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (and (and gluteIso true) (eq chosenQuads.length 3)))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{gluteIso.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenQuads.length 3))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>3-4</td>
+                          <td>10</td>
+                          <td>30 - 60 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
                           <td>3-4</td>
                           <td>10</td>
                           <td>30 - 60 s</td>
@@ -2376,39 +2460,82 @@
                       {{/if}}
 
                       <!-- ISO LEGS / STRENGTH -->
-                      <!-- {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (gt chosenIsoDelt.length 1))}}
+                      {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (and (and gluteIso abadIso) (eq chosenQuads.length 3)))}}
                         <tr>
-                          <td>{{postIso}}</td>
+                          <td>{{legIso1.isoexercise}}</td>
                           <td>4</td>
                           <td>6</td>
                           <td>60 - 90 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso1.isoexercise}}</td>
+                          <td>{{legIso2.isoexercise}}</td>
                           <td>4</td>
                           <td>6</td>
                           <td>60 - 90 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso2.isoexercise}}</td>
-                          <td>4</td>
-                          <td>6</td>
-                          <td>60 - 90 s</td>
-                        </tr>
-                        {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenIsoDelt.length 1))}}
-                        <tr>
-                          <td>{{postIso}}</td>
+                          <td>{{legIso3.isoexercise}}</td>
                           <td>4</td>
                           <td>6</td>
                           <td>60 - 90 s</td>
                         </tr>
                         <tr>
-                          <td>{{antIso1.isoexercise}}</td>
+                          <td>{{gluteIso.isoexercise}}</td>
                           <td>4</td>
                           <td>6</td>
                           <td>60 - 90 s</td>
                         </tr>
-                      {{/if}} -->
+                        <tr>
+                          <td>{{abadIso.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (and (and gluteIso true) (eq chosenQuads.length 3)))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{gluteIso.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes")) (eq chosenQuads.length 3))}}
+                        <tr>
+                          <td>{{legIso1.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso2.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                        <tr>
+                          <td>{{legIso3.isoexercise}}</td>
+                          <td>4</td>
+                          <td>6</td>
+                          <td>60 - 90 s</td>
+                        </tr>
+                      {{/if}}
 
 
 
@@ -2553,25 +2680,24 @@
                             </tr>
                           {{/if}}
 
-
                           <!-- SSHHOOUUUUUULLLLLLDDDEEEEEEERRRRRSSSS -->
                           <!-- ISO SHOULDERS / MUSCLE ENDURANCE -->
-                            {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders")) (gt chosenIsoDelt.length 1))}}
+                            {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders")) (and postIso antIso))}}
                               <tr>
-                                <td>{{postIso}}</td>
+                                <td>{{postIso.isoexercise}}</td>
                                 <td>3</td>
                                 <td>20</td>
                                 <td>30 s</td>
                               </tr>
                               <tr>
-                                <td>{{antIso1.isoexercise}}</td>
+                                <td>{{antIso.isoexercise}}</td>
                                 <td>3</td>
                                 <td>20</td>
                                 <td>30 s</td>
                               </tr>
-                              {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders")) (eq chosenIsoDelt.length 1))}}
+                              {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders")) (and postIso true))}}
                               <tr>
-                                <td>{{postIso}}</td>
+                                <td>{{postIso.isoexercise}}</td>
                                 <td>3</td>
                                 <td>20</td>
                                 <td>30 s</td>
@@ -2579,22 +2705,22 @@
                             {{/if}}
 
                             <!-- ISO SHOULDERS / MUSCLE GROWTH -->
-                            {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders")) (gt chosenIsoDelt.length 0))}}
+                            {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders")) (and postIso antIso))}}
                               <tr>
-                                <td>{{postIso}}</td>
+                                <td>{{postIso.isoexercise}}</td>
                                 <td>3-4</td>
                                 <td>10</td>
                                 <td>30 - 60 s</td>
                               </tr>
                               <tr>
-                                <td>{{antIso1.isoexercise}}</td>
+                                <td>{{antIso.isoexercise}}</td>
                                 <td>3-4</td>
                                 <td>10</td>
                                 <td>30 - 60 s</td>
                               </tr>
-                              {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders")) (eq chosenIsoDelt.length 0))}}
+                              {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders")) (and postIso true))}}
                               <tr>
-                                <td>{{postIso}}</td>
+                                <td>{{postIso.isoexercise}}</td>
                                 <td>3-4</td>
                                 <td>10</td>
                                 <td>30 - 60 s</td>
@@ -2602,28 +2728,97 @@
                             {{/if}}
 
                             <!-- ISO SHOULDERS / STRENGTH -->
-                            {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (gt chosenIsoDelt.length 0))}}
+                            {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Shoulders")) (and postIso antIso))}}
                               <tr>
-                                <td>{{postIso}}</td>
+                                <td>{{postIso.isoexercise}}</td>
                                 <td>4</td>
                                 <td>6</td>
                                 <td>60 - 90 s</td>
                               </tr>
                               <tr>
-                                <td>{{antIso1.isoexercise}}</td>
+                                <td>{{antIso.isoexercise}}</td>
                                 <td>4</td>
                                 <td>6</td>
                                 <td>60 - 90 s</td>
                               </tr>
-                              {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders")) (eq chosenIsoDelt.length 0))}}
+                              {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Shoulders")) (and postIso true))}}
                               <tr>
-                                <td>{{postIso}}</td>
+                                <td>{{postIso.isoexercise}}</td>
                                 <td>4</td>
                                 <td>6</td>
                                 <td>60 - 90 s</td>
                               </tr>
                             {{/if}}
 
+                            <!-- LLEEEEGGGGSSS & GLUUUUUTTTESSSS -->
+                            <!-- ISO LEGS / MUSCLE ENDURANCE -->
+                              {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Legs & Glutes")) (and legIso gluteIso))}}
+                                <tr>
+                                  <td>{{legIso.isoexercise}}</td>
+                                  <td>3</td>
+                                  <td>20</td>
+                                  <td>30 s</td>
+                                </tr>
+                                <tr>
+                                  <td>{{gluteIso.isoexercise}}</td>
+                                  <td>3</td>
+                                  <td>20</td>
+                                  <td>30 s</td>
+                                </tr>
+                                {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Legs & Glutes")) (and legIso true))}}
+                                <tr>
+                                  <td>{{legIso.isoexercise}}</td>
+                                  <td>3</td>
+                                  <td>20</td>
+                                  <td>30 s</td>
+                                </tr>
+                              {{/if}}
+
+                              <!-- ISO LEGS / MUSCLE GROWTH -->
+                              {{#if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Legs & Glutes")) (and legIso gluteIso))}}
+                                <tr>
+                                  <td>{{legIso.isoexercise}}</td>
+                                  <td>3-4</td>
+                                  <td>10</td>
+                                  <td>30 - 60 s</td>
+                                </tr>
+                                <tr>
+                                  <td>{{gluteIso.isoexercise}}</td>
+                                  <td>3-4</td>
+                                  <td>10</td>
+                                  <td>30 - 60 s</td>
+                                </tr>
+                                {{else if (and (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Legs & Glutes")) (and legIso true))}}
+                                <tr>
+                                  <td>{{legIso.isoexercise}}</td>
+                                  <td>3-4</td>
+                                  <td>10</td>
+                                  <td>30 - 60 s</td>
+                                </tr>
+                              {{/if}}
+
+                              <!-- ISO LEGS / STRENGTH -->
+                              {{#if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Legs & Glutes")) (and legIso gluteIso))}}
+                                <tr>
+                                  <td>{{legIso.isoexercise}}</td>
+                                  <td>4</td>
+                                  <td>6</td>
+                                  <td>60 - 90 s</td>
+                                </tr>
+                                <tr>
+                                  <td>{{gluteIso.isoexercise}}</td>
+                                  <td>4</td>
+                                  <td>6</td>
+                                  <td>60 - 90 s</td>
+                                </tr>
+                                {{else if (and (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Legs & Glutes")) (and legIso true))}}
+                                <tr>
+                                  <td>{{legIso.isoexercise}}</td>
+                                  <td>4</td>
+                                  <td>6</td>
+                                  <td>60 - 90 s</td>
+                                </tr>
+                              {{/if}}
 
 
 
@@ -3298,7 +3493,6 @@
           </tbody>
       </table>
     </div>
-
     <a href='mailto:heythere@mylifts.com'><span class='contact'>heythere@mylifts.com   //</span></a>
   </div>
 
@@ -3307,8 +3501,7 @@
   <!-- Main Content with Welcome Screen -->
   <div class='content right home'>
     <div class='jumbo welcome'>
-    <h1><span id='logo'>MyLift</span></h1>
-    <h3>Fitness programming made easy.</h3>
+    <div class='logo'></div>
     <p>
       <em id='mldescription'>The simplest way to create custom fitness programs
         based on research-proven training methods.</em>
@@ -3327,7 +3520,7 @@
       <div class='layout-row layout-align-center' style="text-align: center">
       {{#paper-select class="flex-30" label="Select a Goal!" options=fitnessGoals selected=chosenFitnessGoal onChange=(action (mut chosenFitnessGoal)) as |fitness|}}
         {{#if fitness.goal}}
-          {{#scroll-to href='.muscleGroup' duration=2000 easing='swing' offset=-60}}{{fitness.goal}}{{/scroll-to}}
+          {{fitness.goal}}
         {{/if}}
       {{/paper-select}}
       </div>
@@ -3343,10 +3536,10 @@
       <h4>Choose 2 or 3 muscle groups you'd like to focus on for today!</h4>
       <div class="layout-row layout-align-space-between" style="padding-top: 15px;">
         {{#paper-select class="flex-30" label="Primary Muscle" options=firstGroup selected=chosenMuscleGroup1 onChange=(action "changeGroups" "1") as |muscle|}}
-          {{#scroll-to href='.exerciseChoice' duration=2000 easing='swing' offset=-60}}{{muscle.group}}{{/scroll-to}}
+          {{muscle.group}}
         {{/paper-select}}
         {{#paper-select class="flex-30" label="Secondary Muscle" options=secondGroup selected=chosenMuscleGroup2 onChange=(action "changeGroups" "2") as |muscle|}}
-          {{#scroll-to href='.exerciseChoice' duration=2000 easing='swing' offset=-60}}{{muscle.group}}{{/scroll-to}}
+          {{muscle.group}}
         {{/paper-select}}
         {{#paper-select class="flex-30" label="(Optional) Assistive Muscle" options=thirdGroup selected=chosenMuscleGroup3 onChange=(action "changeGroups" "3") as |muscle|}}
           {{muscle.group}}
@@ -3363,7 +3556,7 @@
       <h1>{{retRandMessage2}}</h1>
       <h4>Now choose to either manually select exercises, or generate random exercises for your program.</h4>
       <div class='layout-row layout-align-center' style='padding-top: 15px;'>
-        {{#scroll-to href='.manualChoice' duration=2000 easing='swing' offset=-60}}{{#paper-button onClick=(action "clickManual")}}Manual{{/paper-button}}{{/scroll-to}}
+        {{#paper-button onClick=(action "clickManual")}}Manual{{/paper-button}}
         {{#paper-button disabled=true onClick=(action "clickRandom")}}Random{{/paper-button}}
       </div>
     </div>
@@ -3374,7 +3567,7 @@
     <!-- Primary Muscle Group Choices -->
     <div class='jumbo manualChoice'>
       <h1>Let's get started!</h1>
-      <h4>Select your exercises, and save when you're finished.</h4>
+      <h4>Select your exercises.</h4>
       <div class='layout-column layout-align-space-between' style='padding-top: 20px;'>
         <h3 class='flex-30' style='margin-bottom: 10px;'>{{chosenMuscleGroup1.group}}</h3>
         {{#if (is-equal chosenMuscleGroup1.group "Chest")}}
@@ -3459,8 +3652,8 @@
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-30' required=true label="Iso Exercise 1" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |delt|}}
+                {{delt.isoexercise}}
               {{/paper-select}}
               {{#paper-select class='flex-30' required=true label="Iso Exercise 2" options=antShoulder1 selected=antIso1 onChange=(action "changeIsoDelt" "1") as |delt|}}
                 {{delt.isoexercise}}
@@ -3499,11 +3692,11 @@
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' label="Iso Exercise 4" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 4" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |glutes|}}
+                {{glutes.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 5" options=isoAbAd selected=abadIso onChange=(action (mut abadIso)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 5" options=isoAbAd selected=abadIso onChange=(action (mut abadIso)) as |abads|}}
+                {{abads.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
@@ -3660,11 +3853,11 @@
               {{/paper-select}}
             </div>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=antShoulder selected=antIso onChange=(action (mut antIso)) as |delt|}}
+              {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |delt|}}
                 {{delt.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=postShoulder selected=postIso onChange=(action (mut postIso)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45'  label="Iso Exercise 2" options=antShoulder selected=antIso onChange=(action (mut antIso)) as |delt|}}
+                {{delt.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
@@ -3689,8 +3882,8 @@
               {{#paper-select class='flex-45' required=true label="Iso Exercise 1" options=isoQuadsHams selected=legIso onChange=(action (mut legIso)) as |quads|}}
                 {{quads.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |exercise|}}
-                {{exercise}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=isoGlutes selected=gluteIso onChange=(action (mut gluteIso)) as |glutes|}}
+                {{glutes.isoexercise}}
               {{/paper-select}}
             </div>
           </div>
@@ -3798,10 +3991,10 @@
           <div class='deltOptions'>
             <h4 style='margin-bottom: 10px;'>2 to 3 Assistive Exercises.</h4>
             <div class='options layout-row layout-align-space-between'>
-              {{#paper-select class='flex-45' label="Iso Exercise 1" options=antShoulder selected=antIso1 onChange=(action "changeIsoDelt" "1") as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 1" options=antShoulder1 selected=antIso1 onChange=(action "changeIsoDelt" "1") as |exercise|}}
                 {{exercise.isoexercise}}
               {{/paper-select}}
-              {{#paper-select class='flex-45' label="Iso Exercise 2" options=antShoulder selected=antIso2 onChange=(action "changeIsoDelt" "2") as |exercise|}}
+              {{#paper-select class='flex-45' label="Iso Exercise 2" options=antShoulder2 selected=antIso2 onChange=(action "changeIsoDelt" "2") as |exercise|}}
                 {{exercise.isoexercise}}
               {{/paper-select}}
             </div>

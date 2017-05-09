@@ -183,6 +183,7 @@ export default Ember.Controller.extend({
       this.get('isoQuadsHams').arrayContentDidChange(0);
     },
 
+
     // Triceps Action Loop
     changeTriceps(groupNum, val) {
       let key = "triExerc" + groupNum;
@@ -239,14 +240,16 @@ export default Ember.Controller.extend({
     },
 
     // Show Program
-
     showProgram() {
       if (Ember.$(window).width() < 1024) {
         Ember.$('.content.left.home').toggle();
         Ember.$('.content.right.home').hide();
       }
     },
+
 },
+
+
 
   // Arrays for the Muscle Endurance, Growth and Strength workout plans
 
@@ -363,7 +366,15 @@ export default Ember.Controller.extend({
   }),
 
   chosenIsoDelt: Ember.A([]),
-  postShoulder: Ember.A(["Reverse Machine Flyes", "Reverse Cable Flyes", "T-Pulls", '']),
+  chosenAntIsoDelt: Ember.A([]),
+  chosenPostIsoDelt: Ember.A([]),
+  postShoulder: Ember.A([
+    Ember.Object.create({isoexercise: "Reverse Machine Flyes"}),
+    Ember.Object.create({isoexercise: "Reverse Cable Flyes"}),
+    Ember.Object.create({isoexercise: "Reverse DB Flyes"}),
+    Ember.Object.create({isoexercise: "T-Pulls"}),
+    Ember.Object.create({isoexercise: ""}),
+  ]),
   antShoulder: Ember.A([
     Ember.Object.create({isoexercise: "Front DB Raise"}),
     Ember.Object.create({isoexercise: "Front Cable Raise"}),
@@ -402,8 +413,20 @@ export default Ember.Controller.extend({
   }),
 
   chosenQuads: Ember.A([]),
-  isoGlutes: Ember.A(["Cable Kickback", "Bridges", "Single-Leg Glute Bridge", "Curtsy Lunges", '']),
-  isoAbAd: Ember.A(["Thigh Abductors", "Thigh Adductors", "Banded Lateral Shuffle", "Fire Hydrants", '']),
+  isoGlutes: Ember.A([
+    Ember.Object.create({isoexercise: "Cable Kickback"}),
+    Ember.Object.create({isoexercise: "Bridges"}),
+    Ember.Object.create({isoexercise: "Single-Leg Glute Bridge"}),
+    Ember.Object.create({isoexercise: "Curtsy Lunges"}),
+    Ember.Object.create({isoexercise: ""}),
+  ]),
+  isoAbAd: Ember.A([
+    Ember.Object.create({isoexercise: "Thigh Abductors"}),
+    Ember.Object.create({isoexercise: "Thigh Adductors"}),
+    Ember.Object.create({isoexercise: "Banded Lateral Shuffle"}),
+    Ember.Object.create({isoexercise: "Fire Hydrants"}),
+    Ember.Object.create({isoexercise: ""}),
+  ]),
   isoQuadsHams: Ember.A([
     Ember.Object.create({isoexercise: "Lunges"}),
     Ember.Object.create({isoexercise: "Goblet Squats"}),
