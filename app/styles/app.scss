@@ -52,37 +52,11 @@ h1 {
   font-family: 'Architects Daughter', cursive;
 }
 
-
-.container {
-  padding: 0;
-  margin: 0;
-  min-height: 100vh;
+.architect {
+  font-family: 'Architects Daughter';
 }
 
-.contact {
-  position: fixed;
-  bottom: 2.5em;
-  left: 3.5em;
-  color: #002528;
-}
-
-.back_btn {
-  position: fixed;
-  bottom: 2.5em;
-  left: 37%;
-  color: #002528;
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-  left: 88%;
-  font-weight: bolder;
-}
-
-/**
- * Top Navigation
- */
+// TOP NAVI
 
  .menu {
    height: 3.5vh;
@@ -120,6 +94,9 @@ h1 {
   }
 }
 
+
+// FIRST WELCOME DIV
+
 .logo {
   background-image: url('/assets/images/mylift.png');
   background-size: contain;
@@ -127,6 +104,10 @@ h1 {
   background-position: center;
   width: auto;
   height: 200px;
+}
+
+#mldescription {
+    font-weight: 400;
 }
 
 #program_logo {
@@ -138,9 +119,8 @@ h1 {
   height: 100px;
 }
 
-.jumbo.welcome {
-  padding: 20px 20px 50px 20px;
-}
+
+// PROGRAM STYLING
 
 #program {
   z-index: 9990;
@@ -148,6 +128,9 @@ h1 {
   position: fixed;
   width: 40.8%;
   text-align: center;
+  h1 {
+    width: 100%;
+  }
   table {
     font-size: 12px;
     width: 100%;
@@ -164,6 +147,13 @@ h1 {
   }
 }
 
+.contact {
+  position: fixed;
+  bottom: 2.5em;
+  left: 3.5em;
+  color: #002528;
+}
+
 //  Divs
 .jumbo {
   padding: 50px 20px;
@@ -173,18 +163,16 @@ h1 {
   background: #f2f2f2;
 }
 
-.programstart {
+.jumbo.welcome {
+  padding: 20px 20px 50px 20px;
+}
+
+.programstart, .manualChoice, .randomChoice {
   display: none;
 }
 
 
-#mldescription {
-    font-weight: 400;
-}
-
-.manualChoice, .randomChoice {
-  display: none;
-}
+// CONTACT AND ABOUT LEFT SIDE
 
 .content.left.about {
   background: url('/assets/images/hey.jpeg') center;
@@ -199,19 +187,30 @@ h1 {
   width: 43%;
 }
 
+
+// CONTACT AND ABOUT RIGHT SIDE
+
 .jumbo.about {
   p {
-    text-align: left;
+    text-align: center;
   }
   h2 {
-    text-align: left;
+    text-align: center;
     font-size: 2.3em;
+    margin-bottom: 10px
   }
   position: relative;
   top: 12em;
+  width: 85%;
+  margin: auto;
 }
 
 .jumbo.cont {
+  h2 {
+    text-align: center;
+    font-size: 2.3em;
+    margin-bottom: 10px
+  }
   position: relative;
   top: 12em;
 }
@@ -273,6 +272,8 @@ h1 {
 div.md-text{
   width: 100% !important;
 }
+
+// PROGRAM BUTTON
 
 #btn_program {
   display: none;
