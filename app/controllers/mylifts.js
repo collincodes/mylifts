@@ -239,6 +239,44 @@ export default Ember.Controller.extend({
       Ember.$('.randomChoice').toggle(1000);
     },
 
+    toMuscleGroup(val) {
+      this.set('chosenFitnessGoal', val);
+      Ember.run.later('scrollTo1', function() {
+        var scroll1 = Ember.$('.muscleGroup');
+        if (scroll1.length) {
+        Ember.$('html, body').animate({
+          scrollTop: (Ember.$('.muscleGroup').offset().top)
+        }, 1000, 'linear');
+        }
+      });
+    },
+
+    toExerciseChoice(val) {
+      this.send('changeGroups', '2', val);
+      Ember.run.later('scrollTo2', function() {
+        var scroll1 = Ember.$('.exerciseChoice');
+        if (scroll1.length) {
+        Ember.$('html, body').animate({
+          scrollTop: (Ember.$('.exerciseChoice').offset().top)
+        }, 1000, 'linear');
+        }
+      });
+    },
+
+    manualClick() {
+      this.send('clickManual');
+      Ember.run.later('scrollTo3', function() {
+        var scroll1 = Ember.$('.manualChoice');
+        if (scroll1.length) {
+        Ember.$('html, body').animate({
+          scrollTop: (Ember.$('.manualChoice').offset().top)
+        }, 1000, 'linear');
+        }
+      });
+    },
+
+
+
     // Show Program
     showProgram() {
       if (Ember.$(window).width() < 1024) {
@@ -259,6 +297,7 @@ export default Ember.Controller.extend({
   compChest: Ember.A([
     Ember.Object.create({exercise: "BB Bench Press"}),
     Ember.Object.create({exercise: "Incline BB Bench Press"}),
+    Ember.Object.create({exercise: "Close-Grip BB Bench Press"}),
     Ember.Object.create({exercise: "DB Bench Press"}),
     Ember.Object.create({exercise: "Incline DB Bench Press"}),
     Ember.Object.create({exercise: "Pushups"}),
@@ -348,6 +387,8 @@ export default Ember.Controller.extend({
   chosenDelt: Ember.A([]),
   compShoulder: Ember.A([
     Ember.Object.create({exercise: "Military Press"}),
+    Ember.Object.create({exercise: "Push Press"}),
+    Ember.Object.create({exercise: "Seated BB Press"}),
     Ember.Object.create({exercise: "Seated DB Press"}),
     Ember.Object.create({exercise: "Single Arm Linear Jammer"}),
     Ember.Object.create({exercise: "Alternating DB Press"}),
@@ -374,6 +415,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({isoexercise: "Reverse Cable Flyes"}),
     Ember.Object.create({isoexercise: "Reverse DB Flyes"}),
     Ember.Object.create({isoexercise: "T-Pulls"}),
+    Ember.Object.create({isoexercise: "TRX Face Pulls"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   antShoulder: Ember.A([
@@ -381,6 +423,7 @@ export default Ember.Controller.extend({
     Ember.Object.create({isoexercise: "Front Cable Raise"}),
     Ember.Object.create({isoexercise: "Front Kettlebell Raise"}),
     Ember.Object.create({isoexercise: "Lateral DB Raise"}),
+    Ember.Object.create({isoexercise: "Lateral Cable Raise"}),
     Ember.Object.create({isoexercise: "Upright Row"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
@@ -434,6 +477,13 @@ export default Ember.Controller.extend({
     Ember.Object.create({isoexercise: "Seated Leg Extensions"}),
     Ember.Object.create({isoexercise: "Seated Leg Curls"}),
     Ember.Object.create({isoexercise: "Standing Cable Leg Curls"}),
+    Ember.Object.create({isoexercise: ""}),
+  ]),
+  isoCalves: Ember.A([
+    Ember.Object.create({isoexercise: "Standing Calf Raise"}),
+    Ember.Object.create({isoexercise: "Seated Calf Raise"}),
+    Ember.Object.create({isoexercise: "Leg Press Calf Raise"}),
+    Ember.Object.create({isoexercise: "Donkey Calf Raise"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoQuadsHams1: Ember.computed.filter('isoQuadsHams', function(item) {
