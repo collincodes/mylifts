@@ -38,7 +38,7 @@ body {
 }
 
 a {
-    color: #002528;
+    color: #2D4758;
     text-decoration: none;
 }
 
@@ -71,8 +71,8 @@ h1 {
  }
 
  .menu:hover {
-   border-bottom: solid 2px #001a1c;
-   background: #002528;
+   border-bottom: solid 2px #233844;
+   background: #2D4758;
    transition: 3000;
    color: #fff;
  }
@@ -80,7 +80,7 @@ h1 {
 .links {
   position: fixed;
   display: none;
-  background: #002528;
+  background: #2D4758;
   height: 96.5vh;
   width: 43%;
   z-index: 9998;
@@ -103,7 +103,8 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   width: auto;
-  height: 200px;
+  height: 175px;
+  margin-bottom: 20px;
 }
 
 #mldescription {
@@ -116,7 +117,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   width: auto;
-  height: 100px;
+  height: 75px;
 }
 
 
@@ -141,7 +142,7 @@ h1 {
     }
   }
   thead {
-    background: #002528;
+    background: #2D4758;
     color: #fff;
     font-weight: 200 !important;
   }
@@ -151,7 +152,8 @@ h1 {
   position: fixed;
   bottom: 2.5em;
   left: 3.5em;
-  color: #002528;
+  color: #000;
+  font-weight: 500;
 }
 
 //  Divs
@@ -258,7 +260,7 @@ h1 {
   padding: 7px 22px 7px;
   text-decoration: none;
   color: #fff;
-  background: #002528;
+  background: #2D4758;
   border-radius: 5px;
   border: none;
   font-size: 16px;
