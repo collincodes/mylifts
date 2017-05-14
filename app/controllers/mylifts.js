@@ -71,7 +71,7 @@ export default Ember.Controller.extend({
       for (var i = 1; i < 5; i++) {
         let tempKey = 'chestCore' + i;
         let tempVal = this.get(tempKey);
-        if (tempVal && tempVal.get('exercise')) {
+        if (tempVal && tempVal.get('exercise', 'eSets', 'eReps', 'eRest')) {
           this.get('chosenChest').addObject(tempVal);
         }
       }
@@ -295,14 +295,14 @@ export default Ember.Controller.extend({
   // Filters and Arrays for Chest
   chosenChest: Ember.A([]),
   compChest: Ember.A([
-    Ember.Object.create({exercise: "BB Bench Press"}),
-    Ember.Object.create({exercise: "Incline BB Bench Press"}),
-    Ember.Object.create({exercise: "Close-Grip BB Bench Press"}),
-    Ember.Object.create({exercise: "DB Bench Press"}),
-    Ember.Object.create({exercise: "Incline DB Bench Press"}),
-    Ember.Object.create({exercise: "Pushups"}),
-    Ember.Object.create({exercise: "Dips"}),
-    Ember.Object.create({exercise: ""}),
+    Ember.Object.create({exercise: "BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Incline BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Close-Grip BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "DB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sReps: "5", sSets: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Incline DB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Pushups", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Dips", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
   ]),
   compChest1: Ember.computed.filter('compChest', function(item) {
     return item !== this.get('chestCore2') && item !== this.get('chestCore3') && item !== this.get('chestCore4');
@@ -319,10 +319,10 @@ export default Ember.Controller.extend({
 
   chosenIsoChest: Ember.A([]),
   isoChest: Ember.A([
-    Ember.Object.create({isoexercise: "High Cable Crossover"}),
-    Ember.Object.create({isoexercise: "Cable Crossover"}),
-    Ember.Object.create({isoexercise: "Low Cable Crossover"}),
-    Ember.Object.create({isoexercise: "Seated Chest Flyes"}),
+    Ember.Object.create({isoexercise: "High Cable Crossover", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Cable Crossover", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Low Cable Crossover", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Seated Chest Flyes", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoChest1: Ember.computed.filter('isoChest', function(item) {
@@ -339,13 +339,13 @@ export default Ember.Controller.extend({
 // Filters and Arrays for Back
   chosenBack: Ember.A([]),
   compBack: Ember.A([
-    Ember.Object.create({exercise: "Pull Ups"}),
-    Ember.Object.create({exercise: "Chin Ups"}),
-    Ember.Object.create({exercise: "Lat Pulldowns"}),
-    Ember.Object.create({exercise: "T-Bar Row"}),
-    Ember.Object.create({exercise: "Bent Over BB Row"}),
-    Ember.Object.create({exercise: "Bent Over DB Row"}),
-    Ember.Object.create({exercise: "Deadlifts"}),
+    Ember.Object.create({exercise: "Pull Ups", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Chin Ups", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Lat Pulldowns", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "T-Bar Row", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Bent Over BB Row", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Bent Over DB Row", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Deadlifts", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
     Ember.Object.create({exercise: ""}),
   ]),
   compBack1: Ember.computed.filter('compBack', function(item) {
@@ -363,13 +363,13 @@ export default Ember.Controller.extend({
 
   chosenIsoBack: Ember.A([]),
   isoBack: Ember.A([
-    Ember.Object.create({isoexercise: "Cable Straight-Arm Pulldowns"}),
-    Ember.Object.create({isoexercise: "One-Arm DB Row"}),
-    Ember.Object.create({isoexercise: "Seated Cable Row"}),
-    Ember.Object.create({isoexercise: "Smith Machine Shrugs"}),
-    Ember.Object.create({isoexercise: "DB Shrugs"}),
-    Ember.Object.create({isoexercise: "Back Extensions"}),
-    Ember.Object.create({isoexercise: "Supermans"}),
+    Ember.Object.create({isoexercise: "Cable Straight-Arm Pulldowns", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "One-Arm DB Row", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Seated Cable Row", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Smith Machine Shrugs", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "DB Shrugs", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Back Extensions", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Supermans", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoBack1: Ember.computed.filter('isoBack', function(item) {
@@ -386,12 +386,12 @@ export default Ember.Controller.extend({
 // Filters and Arrays for Shoulders
   chosenDelt: Ember.A([]),
   compShoulder: Ember.A([
-    Ember.Object.create({exercise: "Military Press"}),
-    Ember.Object.create({exercise: "Push Press"}),
-    Ember.Object.create({exercise: "Seated BB Press"}),
-    Ember.Object.create({exercise: "Seated DB Press"}),
-    Ember.Object.create({exercise: "Single Arm Linear Jammer"}),
-    Ember.Object.create({exercise: "Alternating DB Press"}),
+    Ember.Object.create({exercise: "Military Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Push Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Seated BB Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Seated DB Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Single Arm Linear Jammer", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Alternating DB Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
     Ember.Object.create({exercise: ""}),
   ]),
   compShoulder1: Ember.computed.filter('compShoulder', function(item) {
@@ -411,20 +411,20 @@ export default Ember.Controller.extend({
   chosenAntIsoDelt: Ember.A([]),
   chosenPostIsoDelt: Ember.A([]),
   postShoulder: Ember.A([
-    Ember.Object.create({isoexercise: "Reverse Machine Flyes"}),
-    Ember.Object.create({isoexercise: "Reverse Cable Flyes"}),
-    Ember.Object.create({isoexercise: "Reverse DB Flyes"}),
-    Ember.Object.create({isoexercise: "T-Pulls"}),
-    Ember.Object.create({isoexercise: "TRX Face Pulls"}),
+    Ember.Object.create({isoexercise: "Reverse Machine Flyes", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Reverse Cable Flyes", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Reverse DB Flyes", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "T-Pulls", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "TRX Face Pulls", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   antShoulder: Ember.A([
-    Ember.Object.create({isoexercise: "Front DB Raise"}),
-    Ember.Object.create({isoexercise: "Front Cable Raise"}),
-    Ember.Object.create({isoexercise: "Front Kettlebell Raise"}),
-    Ember.Object.create({isoexercise: "Lateral DB Raise"}),
-    Ember.Object.create({isoexercise: "Lateral Cable Raise"}),
-    Ember.Object.create({isoexercise: "Upright Row"}),
+    Ember.Object.create({isoexercise: "Front DB Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Front Cable Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Front Kettlebell Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Lateral DB Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Lateral Cable Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Upright Row", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   antShoulder1: Ember.computed.filter('antShoulder', function(item) {
@@ -438,12 +438,12 @@ export default Ember.Controller.extend({
 // Filters and Arrays for Legs & Glutes
   chosenLegs: Ember.A([]),
   compLegs: Ember.A([
-    Ember.Object.create({exercise: "Squats"}),
-    Ember.Object.create({exercise: "Leg Press"}),
-    Ember.Object.create({exercise: "Deadlifts"}),
-    Ember.Object.create({exercise: "Romanian Deadlifts"}),
-    Ember.Object.create({exercise: "Sumo Deadlifts"}),
-    Ember.Object.create({exercise: "Front Squats"}),
+    Ember.Object.create({exercise: "Squats", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Leg Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Deadlifts", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Romanian Deadlifts", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Sumo Deadlifts", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "Front Squats", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
     Ember.Object.create({exercise: ""}),
   ]),
   compLegs1: Ember.computed.filter('compLegs', function(item) {
@@ -458,32 +458,32 @@ export default Ember.Controller.extend({
 
   chosenQuads: Ember.A([]),
   isoGlutes: Ember.A([
-    Ember.Object.create({isoexercise: "Cable Kickback"}),
-    Ember.Object.create({isoexercise: "Bridges"}),
-    Ember.Object.create({isoexercise: "Single-Leg Glute Bridge"}),
-    Ember.Object.create({isoexercise: "Curtsy Lunges"}),
+    Ember.Object.create({isoexercise: "Cable Kickback", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Bridges", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Single-Leg Glute Bridge", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Curtsy Lunges", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoAbAd: Ember.A([
-    Ember.Object.create({isoexercise: "Thigh Abductors"}),
-    Ember.Object.create({isoexercise: "Thigh Adductors"}),
-    Ember.Object.create({isoexercise: "Banded Lateral Shuffle"}),
-    Ember.Object.create({isoexercise: "Fire Hydrants"}),
+    Ember.Object.create({isoexercise: "Thigh Abductors", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Thigh Adductors", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Banded Lateral Shuffle", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Fire Hydrants", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoQuadsHams: Ember.A([
-    Ember.Object.create({isoexercise: "Lunges"}),
-    Ember.Object.create({isoexercise: "Goblet Squats"}),
-    Ember.Object.create({isoexercise: "Seated Leg Extensions"}),
-    Ember.Object.create({isoexercise: "Seated Leg Curls"}),
-    Ember.Object.create({isoexercise: "Standing Cable Leg Curls"}),
+    Ember.Object.create({isoexercise: "Lunges", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Goblet Squats", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Seated Leg Extensions", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Seated Leg Curls", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Standing Cable Leg Curls", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoCalves: Ember.A([
-    Ember.Object.create({isoexercise: "Standing Calf Raise"}),
-    Ember.Object.create({isoexercise: "Seated Calf Raise"}),
-    Ember.Object.create({isoexercise: "Leg Press Calf Raise"}),
-    Ember.Object.create({isoexercise: "Donkey Calf Raise"}),
+    Ember.Object.create({isoexercise: "Standing Calf Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Seated Calf Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Leg Press Calf Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({isoexercise: "Donkey Calf Raise", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({isoexercise: ""}),
   ]),
   isoQuadsHams1: Ember.computed.filter('isoQuadsHams', function(item) {
@@ -500,13 +500,13 @@ export default Ember.Controller.extend({
 // Filters and Arrays for Triceps
   chosenTris: Ember.A([]),
   isTris: Ember.A([
-    Ember.Object.create({exercise: "Rope Extensions"}),
-    Ember.Object.create({exercise: "Straight-Bar Extensions"}),
-    Ember.Object.create({exercise: "Cable Kickbacks"}),
-    Ember.Object.create({exercise: "Reverse-Grip Extensions"}),
-    Ember.Object.create({exercise: "Single-Arm Pulldowns"}),
-    Ember.Object.create({exercise: "Machine Tricep Extensions"}),
-    Ember.Object.create({exercise: "Assisted Dips"}),
+    Ember.Object.create({exercise: "Rope Extensions", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Straight-Bar Extensions", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Cable Kickbacks", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Reverse-Grip Extensions", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Single-Arm Pulldowns", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Machine Tricep Extensions", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Assisted Dips", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
     Ember.Object.create({exercise: ""}),
   ]),
   isTris1: Ember.computed.filter('isTris', function(item) {
@@ -529,13 +529,13 @@ export default Ember.Controller.extend({
 // Filters and Arrays for Biceps
   chosenBis: Ember.A([]),
   isBis: Ember.A([
-    Ember.Object.create({exercise: "Preacher Curls"}),
-    Ember.Object.create({exercise: "Standing DB Curls"}),
-    Ember.Object.create({exercise: "Standing BB Curls"}),
-    Ember.Object.create({exercise: "DB Hammer Curls"}),
-    Ember.Object.create({exercise: "Rope Cable Hammer Curls"}),
-    Ember.Object.create({exercise: "Spider Curls"}),
-    Ember.Object.create({exercise: "Machine Bicep Curls"}),
+    Ember.Object.create({exercise: "Preacher Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Standing DB Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Standing BB Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "DB Hammer Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Rope Cable Hammer Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Spider Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
+    Ember.Object.create({exercise: "Machine Bicep Curls", eSets: "3", eReps: "15-20", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "4", sReps: "6, 8, 10, 12", sRest: "1 - 2 min"}),
     Ember.Object.create({exercise: ""}),
   ]),
   isBis1: Ember.computed.filter('isBis', function(item) {
@@ -558,16 +558,16 @@ export default Ember.Controller.extend({
 // Filter and Array for Abdominals
   chosenAbs: Ember.A([]),
   isAbs: Ember.A([
-    Ember.Object.create({exercise: "Plank"}),
-    Ember.Object.create({exercise: "Decline Sit Ups"}),
-    Ember.Object.create({exercise: "Bicycles"}),
-    Ember.Object.create({exercise: "Knee Raises"}),
-    Ember.Object.create({exercise: "Hanging Leg Raises"}),
-    Ember.Object.create({exercise: "Reverse Crunch"}),
-    Ember.Object.create({exercise: "Supine Leg Raises"}),
-    Ember.Object.create({exercise: "Pallof Presses"}),
-    Ember.Object.create({exercise: "Oblique Crunch"}),
-    Ember.Object.create({exercise: "Alternate Heel Touches"}),
+    Ember.Object.create({exercise: "Plank", eSets: "2 - 3", eReps: "1.5 min", eRest: "30 s", gSets: "3", gReps: "1 min", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "30 s", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Decline Sit Ups", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Bicycles", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Knee Raises", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Hanging Leg Raises", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Reverse Crunch", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Supine Leg Raises", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Pallof Presses", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Oblique Crunch", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
+    Ember.Object.create({exercise: "Alternate Heel Touches", eSets: "2 - 3", eReps: "15 - 20", eRest: "30 s", gSets: "3", gReps: "10", gRest: "30 - 45 s", sSets: "3 - 4", sReps: "6 - 10", sRest: "45 - 60 s"}),
     Ember.Object.create({exercise: ""}),
   ]),
   isAbs1: Ember.computed.filter('isAbs', function(item) {

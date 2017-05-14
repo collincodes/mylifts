@@ -49,7 +49,14 @@ p {
 }
 
 h1 {
+  color: #012130;
   font-family: 'Architects Daughter', cursive;
+}
+
+h5 {
+  margin-top: 5px;
+  font-family: 'Architects Daughter', cursive;
+  color: #012130;
 }
 
 .architect {
@@ -88,7 +95,7 @@ h1 {
     position: relative;
     right: 0;
     font-size: 2.5em;
-    top: 37vh;
+    top: 33vh;
     display: block;
     color: #fff;
   }
