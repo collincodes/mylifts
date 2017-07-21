@@ -84,20 +84,20 @@ h5 {
    color: #fff;
  }
 
-.links {
-  position: fixed;
-  display: none;
-  background: #2D4758;
-  height: 96.5vh;
-  width: 43%;
-  z-index: 9998;
-  a {
-    position: relative;
-    right: 0;
-    font-size: 2.5em;
-    top: 33vh;
-    display: block;
-    color: #fff;
+  .links {
+    position: fixed;
+    display: none;
+    background: #2D4758;
+    height: 96.5vh;
+    width: 43%;
+    z-index: 9998;
+    a {
+      position: relative;
+      right: 0;
+      font-size: 2.5em;
+      top: 33vh;
+      display: block;
+      color: #fff;
   }
 }
 
@@ -147,12 +147,28 @@ h5 {
         height: 40px;
       }
     }
+    td {
+      width: 25%;
+    }
   }
   thead {
     background: #2D4758;
     color: #fff;
     font-weight: 200 !important;
   }
+}
+
+.hide {
+  display: none;
+}
+
+.instruction, .video {
+  width: 50%;
+}
+
+.program_help {
+  color: #233844;
+  font-size: 14px;
 }
 
 .contact {

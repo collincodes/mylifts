@@ -275,7 +275,12 @@ export default Ember.Controller.extend({
       });
     },
 
-
+    toggleHelp() {
+      Ember.$('.exercise').off().on('click', function() {
+          Ember.$(this).next().slideToggle();
+        });
+        // this.toggleProperty(index, 'isDisplay');
+    },
 
     // Show Program
     showProgram() {
@@ -289,13 +294,12 @@ export default Ember.Controller.extend({
 },
 
 
-
   // Arrays for the Muscle Endurance, Growth and Strength workout plans
 
   // Filters and Arrays for Chest
   chosenChest: Ember.A([]),
   compChest: Ember.A([
-    Ember.Object.create({exercise: "BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
+    Ember.Object.create({exercise: "BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min", form: 'Hello, there', video: 'Video here.'}),
     Ember.Object.create({exercise: "Incline BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
     Ember.Object.create({exercise: "Close-Grip BB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sSets: "5", sReps: "5", sRest: "1.5 - 3 min"}),
     Ember.Object.create({exercise: "DB Bench Press", eSets: "3", eReps: "15", eRest: "30 - 45 s", gSets: "3-4", gReps: "12, 10, 8, 8", gRest: "30 - 90 s", sReps: "5", sSets: "5", sRest: "1.5 - 3 min"}),

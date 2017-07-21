@@ -28,31 +28,43 @@
           <!-- Chest Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Chest"))}}
             {{#each chosenChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.exercise}}</td>
                 <td>{{chest.eSets}}</td>
                 <td>{{chest.eReps}}</td>
                 <td>{{chest.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'>{{chest.form}}</td>
+                <td colspan='2' class='video'>{{chest.video}}</td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Chest"))}}
             {{#each chosenChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.exercise}}</td>
                 <td>{{chest.gSets}}</td>
                 <td>{{chest.gReps}}</td>
                 <td>{{chest.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Chest"))}}
             {{#each chosenChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.exercise}}</td>
                 <td>{{chest.sSets}}</td>
                 <td>{{chest.sReps}}</td>
                 <td>{{chest.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -60,31 +72,43 @@
           <!-- Back Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Back"))}}
             {{#each chosenBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.exercise}}</td>
                 <td>{{back.eSets}}</td>
                 <td>{{back.eReps}}</td>
                 <td>{{back.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Back"))}}
             {{#each chosenBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.exercise}}</td>
                 <td>{{back.gSets}}</td>
                 <td>{{back.gReps}}</td>
                 <td>{{back.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Back"))}}
             {{#each chosenBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.exercise}}</td>
                 <td>{{back.sSets}}</td>
                 <td>{{back.sReps}}</td>
                 <td>{{back.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -92,31 +116,43 @@
           <!-- Shoulders Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders"))}}
             {{#each chosenDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.exercise}}</td>
                 <td>{{delt.eSets}}</td>
                 <td>{{delt.eReps}}</td>
                 <td>{{delt.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders"))}}
             {{#each chosenDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.exercise}}</td>
                 <td>{{delt.gSets}}</td>
                 <td>{{delt.gReps}}</td>
                 <td>{{delt.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders"))}}
             {{#each chosenDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.exercise}}</td>
                 <td>{{delt.sSets}}</td>
                 <td>{{delt.sReps}}</td>
                 <td>{{delt.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -124,31 +160,43 @@
           <!-- Legs Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes"))}}
             {{#each chosenLegs as |legs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legs.exercise}}</td>
                 <td>{{legs.eSets}}</td>
                 <td>{{legs.eReps}}</td>
                 <td>{{legs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes"))}}
           {{#each chosenLegs as |legs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{legs.exercise}}</td>
               <td>{{legs.gSets}}</td>
               <td>{{legs.gReps}}</td>
               <td>{{legs.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes"))}}
           {{#each chosenLegs as |legs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{legs.exercise}}</td>
               <td>{{legs.sSets}}</td>
               <td>{{legs.sReps}}</td>
               <td>{{legs.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -156,31 +204,43 @@
           <!-- Triceps Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Triceps"))}}
             {{#each chosenTris as |tris|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{tris.exercise}}</td>
                 <td>{{tris.eSets}}</td>
                 <td>{{tris.eReps}}</td>
                 <td>{{tris.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Triceps"))}}
           {{#each chosenTris as |tris|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{tris.exercise}}</td>
               <td>{{tris.gSets}}</td>
               <td>{{tris.gReps}}</td>
               <td>{{tris.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Triceps"))}}
           {{#each chosenTris as |tris|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{tris.exercise}}</td>
               <td>{{tris.sSets}}</td>
               <td>{{tris.sReps}}</td>
               <td>{{tris.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -188,31 +248,43 @@
           <!-- Biceps Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Biceps"))}}
             {{#each chosenBis as |bis|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{bis.exercise}}</td>
                 <td>{{bis.eSets}}</td>
                 <td>{{bis.eReps}}</td>
                 <td>{{bis.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Biceps"))}}
           {{#each chosenBis as |bis|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{bis.exercise}}</td>
               <td>{{bis.gSets}}</td>
               <td>{{bis.gReps}}</td>
               <td>{{bis.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Biceps"))}}
           {{#each chosenBis as |bis|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{bis.exercise}}</td>
               <td>{{bis.sSets}}</td>
               <td>{{bis.sReps}}</td>
               <td>{{bis.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -220,31 +292,43 @@
           <!-- Abdominals Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Abdominals"))}}
             {{#each chosenAbs as |abs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{abs.exercise}}</td>
                 <td>{{abs.eSets}}</td>
                 <td>{{abs.eReps}}</td>
                 <td>{{abs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Abdominals"))}}
           {{#each chosenAbs as |abs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abs.exercise}}</td>
               <td>{{abs.gSets}}</td>
               <td>{{abs.gReps}}</td>
               <td>{{abs.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Abdominals"))}}
           {{#each chosenAbs as |abs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abs.exercise}}</td>
               <td>{{abs.sSets}}</td>
               <td>{{abs.sReps}}</td>
               <td>{{abs.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -253,31 +337,43 @@
           <!-- Chest Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Chest"))}}
             {{#each chosenChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.exercise}}</td>
                 <td>{{chest.eSets}}</td>
                 <td>{{chest.eReps}}</td>
                 <td>{{chest.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Chest"))}}
             {{#each chosenChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.exercise}}</td>
                 <td>{{chest.gSets}}</td>
                 <td>{{chest.gReps}}</td>
                 <td>{{chest.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Chest"))}}
             {{#each chosenChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.exercise}}</td>
                 <td>{{chest.sSets}}</td>
                 <td>{{chest.sReps}}</td>
                 <td>{{chest.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -285,31 +381,43 @@
           <!-- Back Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Back"))}}
             {{#each chosenBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.exercise}}</td>
                 <td>{{back.eSets}}</td>
                 <td>{{back.eReps}}</td>
                 <td>{{back.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Back"))}}
             {{#each chosenBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.exercise}}</td>
                 <td>{{back.gSets}}</td>
                 <td>{{back.gReps}}</td>
                 <td>{{back.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Back"))}}
             {{#each chosenBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.exercise}}</td>
                 <td>{{back.sSets}}</td>
                 <td>{{back.sReps}}</td>
                 <td>{{back.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -317,31 +425,43 @@
           <!-- Shoulders Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders"))}}
             {{#each chosenDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.exercise}}</td>
                 <td>{{delt.eSets}}</td>
                 <td>{{delt.eReps}}</td>
                 <td>{{delt.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders"))}}
             {{#each chosenDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.exercise}}</td>
                 <td>{{delt.gSets}}</td>
                 <td>{{delt.gReps}}</td>
                 <td>{{delt.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Shoulders"))}}
             {{#each chosenDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.exercise}}</td>
                 <td>{{delt.sSets}}</td>
                 <td>{{delt.sReps}}</td>
                 <td>{{delt.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -349,31 +469,43 @@
           <!-- Legs Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Legs & Glutes"))}}
             {{#each chosenLegs as |legs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legs.exercise}}</td>
                 <td>{{legs.eSets}}</td>
                 <td>{{legs.eReps}}</td>
                 <td>{{legs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Legs & Glutes"))}}
           {{#each chosenLegs as |legs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{legs.exercise}}</td>
               <td>{{legs.gSets}}</td>
               <td>{{legs.gReps}}</td>
               <td>{{legs.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Legs & Glutes"))}}
           {{#each chosenLegs as |legs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{legs.exercise}}</td>
               <td>{{legs.sSets}}</td>
               <td>{{legs.sReps}}</td>
               <td>{{legs.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -383,31 +515,43 @@
           <!-- Chest Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.eSets}}</td>
                 <td>{{chest.eReps}}</td>
                 <td>{{chest.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.gSets}}</td>
                 <td>{{chest.gReps}}</td>
                 <td>{{chest.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.sSets}}</td>
                 <td>{{chest.sReps}}</td>
                 <td>{{chest.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -415,200 +559,342 @@
           <!-- Back Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.eSets}}</td>
                 <td>{{back.eReps}}</td>
                 <td>{{back.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.gSets}}</td>
                 <td>{{back.gReps}}</td>
                 <td>{{back.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.sSets}}</td>
                 <td>{{back.sReps}}</td>
                 <td>{{back.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
 
           <!-- Shoulders Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Shoulders"))}}
-              <tr>
+
+            {{#if postIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{postIso.isoexercise}}</td>
                 <td>{{postIso.eSets}}</td>
                 <td>{{postIso.eReps}}</td>
                 <td>{{postIso.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
             {{#each chosenIsoDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.isoexercise}}</td>
                 <td>{{delt.eSets}}</td>
                 <td>{{delt.eReps}}</td>
                 <td>{{delt.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
+
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Shoulders"))}}
-            <tr>
+
+          {{#if postIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{postIso.isoexercise}}</td>
               <td>{{postIso.gSets}}</td>
               <td>{{postIso.gReps}}</td>
               <td>{{postIso.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+          {{/if}}
+
             {{#each chosenIsoDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.isoexercise}}</td>
                 <td>{{delt.gSets}}</td>
                 <td>{{delt.gReps}}</td>
                 <td>{{delt.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
+
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Shoulders"))}}
-            <tr>
-              <td>{{postIso.isoexercise}}</td>
-              <td>{{postIso.sSets}}</td>
-              <td>{{postIso.sReps}}</td>
-              <td>{{postIso.sRest}}</td>
-            </tr>
+
+            {{#if postIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{postIso.isoexercise}}</td>
+                <td>{{postIso.sSets}}</td>
+                <td>{{postIso.sReps}}</td>
+                <td>{{postIso.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
             {{#each chosenIsoDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.isoexercise}}</td>
                 <td>{{delt.sSets}}</td>
                 <td>{{delt.sReps}}</td>
                 <td>{{delt.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
 
           <!-- Legs Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup1.group "Legs & Glutes"))}}
+
             {{#each chosenQuads as |legs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legs.isoexercise}}</td>
                 <td>{{legs.eSets}}</td>
                 <td>{{legs.eReps}}</td>
                 <td>{{legs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
-            <tr>
+
+            {{#if gluteIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{gluteIso.isoexercise}}</td>
               <td>{{gluteIso.eSets}}</td>
               <td>{{gluteIso.eReps}}</td>
               <td>{{gluteIso.eRest}}</td>
             </tr>
-            <tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+            {{/if}}
+
+            {{#if abadIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abadIso.isoexercise}}</td>
               <td>{{abadIso.eSets}}</td>
               <td>{{abadIso.eReps}}</td>
               <td>{{abadIso.eRest}}</td>
             </tr>
-            <tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+            {{/if}}
+
+            {{#if calfIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{calfIso.isoexercise}}</td>
               <td>{{calfIso.eSets}}</td>
               <td>{{calfIso.eReps}}</td>
               <td>{{calfIso.eRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+            {{/if}}
           {{/if}}
+
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup1.group "Legs & Glutes"))}}
+
           {{#each chosenQuads as |legs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{legs.isoexercise}}</td>
               <td>{{legs.gSets}}</td>
               <td>{{legs.gReps}}</td>
               <td>{{legs.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
-          <tr>
-            <td>{{gluteIso.isoexercise}}</td>
-            <td>{{gluteIso.gSets}}</td>
-            <td>{{gluteIso.gReps}}</td>
-            <td>{{gluteIso.gRest}}</td>
-          </tr>
-          <tr>
-            <td>{{abadIso.isoexercise}}</td>
-            <td>{{abadIso.gSets}}</td>
-            <td>{{abadIso.gReps}}</td>
-            <td>{{abadIso.gRest}}</td>
-          </tr>
-          <tr>
-            <td>{{calfIso.isoexercise}}</td>
-            <td>{{calfIso.gSets}}</td>
-            <td>{{calfIso.gReps}}</td>
-            <td>{{calfIso.gRest}}</td>
-          </tr>
+
+          {{#if gluteIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
+              <td>{{gluteIso.isoexercise}}</td>
+              <td>{{gluteIso.gSets}}</td>
+              <td>{{gluteIso.gReps}}</td>
+              <td>{{gluteIso.gRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/if}}
+
+          {{#if abadIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
+              <td>{{abadIso.isoexercise}}</td>
+              <td>{{abadIso.gSets}}</td>
+              <td>{{abadIso.gReps}}</td>
+              <td>{{abadIso.gRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+          {{/if}}
+
+          {{#if calfIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
+              <td>{{calfIso.isoexercise}}</td>
+              <td>{{calfIso.gSets}}</td>
+              <td>{{calfIso.gReps}}</td>
+              <td>{{calfIso.gRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+          {{/if}}
+          {{/if}}
+
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup1.group "Legs & Glutes"))}}
+
           {{#each chosenQuads as |legs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{legs.isoexercise}}</td>
               <td>{{legs.sSets}}</td>
               <td>{{legs.sReps}}</td>
               <td>{{legs.sRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
-          <tr>
-            <td>{{gluteIso.isoexercise}}</td>
-            <td>{{gluteIso.sSets}}</td>
-            <td>{{gluteIso.sReps}}</td>
-            <td>{{gluteIso.sRest}}</td>
-          </tr>
-          <tr>
-            <td>{{abadIso.isoexercise}}</td>
-            <td>{{abadIso.sSets}}</td>
-            <td>{{abadIso.sReps}}</td>
-            <td>{{abadIso.sRest}}</td>
-          </tr>
-          <tr>
-            <td>{{calfIso.isoexercise}}</td>
-            <td>{{calfIso.sSets}}</td>
-            <td>{{calfIso.sReps}}</td>
-            <td>{{calfIso.sRest}}</td>
-          </tr>
+
+          {{#if gluteIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
+              <td>{{gluteIso.isoexercise}}</td>
+              <td>{{gluteIso.sSets}}</td>
+              <td>{{gluteIso.sReps}}</td>
+              <td>{{gluteIso.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+          {{/if}}
+
+          {{#if abadIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
+              <td>{{abadIso.isoexercise}}</td>
+              <td>{{abadIso.sSets}}</td>
+              <td>{{abadIso.sReps}}</td>
+              <td>{{abadIso.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+          {{/if}}
+
+          {{#if calfIso true}}
+            <tr class='exercise' {{action 'toggleHelp'}}>
+              <td>{{calfIso.isoexercise}}</td>
+              <td>{{calfIso.sSets}}</td>
+              <td>{{calfIso.sReps}}</td>
+              <td>{{calfIso.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
+          {{/if}}
           {{/if}}
 
           <!-- Secondary Isolation -->
           <!-- Chest Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.eSets}}</td>
                 <td>{{chest.eReps}}</td>
                 <td>{{chest.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.gSets}}</td>
                 <td>{{chest.gReps}}</td>
                 <td>{{chest.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.sSets}}</td>
                 <td>{{chest.sReps}}</td>
                 <td>{{chest.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -616,169 +902,300 @@
           <!-- Back Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.eSets}}</td>
                 <td>{{back.eReps}}</td>
                 <td>{{back.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.gSets}}</td>
                 <td>{{back.gReps}}</td>
                 <td>{{back.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.sSets}}</td>
                 <td>{{back.sReps}}</td>
                 <td>{{back.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
 
           <!-- Shoulders Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Shoulders"))}}
-              <tr>
+
+            {{#if postIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{postIso.isoexercise}}</td>
                 <td>{{postIso.eSets}}</td>
                 <td>{{postIso.eReps}}</td>
                 <td>{{postIso.eRest}}</td>
               </tr>
-              <tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+            {{#if antIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{antIso.isoexercise}}</td>
                 <td>{{antIso.eSets}}</td>
                 <td>{{antIso.eReps}}</td>
                 <td>{{antIso.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
           {{/if}}
+
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Shoulders"))}}
-            <tr>
-              <td>{{postIso.isoexercise}}</td>
-              <td>{{postIso.gSets}}</td>
-              <td>{{postIso.gReps}}</td>
-              <td>{{postIso.gRest}}</td>
-            </tr>
-              <tr>
+
+            {{#if postIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{postIso.isoexercise}}</td>
+                <td>{{postIso.gSets}}</td>
+                <td>{{postIso.gReps}}</td>
+                <td>{{postIso.gRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if antIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{antIso.isoexercise}}</td>
                 <td>{{antIso.gSets}}</td>
                 <td>{{antIso.gReps}}</td>
                 <td>{{antIso.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Shoulders"))}}
-            <tr>
-              <td>{{postIso.isoexercise}}</td>
-              <td>{{postIso.sSets}}</td>
-              <td>{{postIso.sReps}}</td>
-              <td>{{postIso.sRest}}</td>
-            </tr>
-              <tr>
+
+            {{#if postIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{postIso.isoexercise}}</td>
+                <td>{{postIso.sSets}}</td>
+                <td>{{postIso.sReps}}</td>
+                <td>{{postIso.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if antIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{antIso.isoexercise}}</td>
                 <td>{{antIso.sSets}}</td>
                 <td>{{antIso.sReps}}</td>
                 <td>{{antIso.sRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
           {{/if}}
 
           <!-- Legs Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Legs & Glutes"))}}
-              <tr>
+
+            {{#if legIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legIso.isoexercise}}</td>
                 <td>{{legIso.eSets}}</td>
                 <td>{{legIso.eReps}}</td>
                 <td>{{legIso.eRest}}</td>
               </tr>
-            <tr>
-              <td>{{gluteIso.isoexercise}}</td>
-              <td>{{gluteIso.eSets}}</td>
-              <td>{{gluteIso.eReps}}</td>
-              <td>{{gluteIso.eRest}}</td>
-            </tr>
-            <tr>
-              <td>{{calfIso.isoexercise}}</td>
-              <td>{{calfIso.eSets}}</td>
-              <td>{{calfIso.eReps}}</td>
-              <td>{{calfIso.eRest}}</td>
-            </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if gluteIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{gluteIso.isoexercise}}</td>
+                <td>{{gluteIso.eSets}}</td>
+                <td>{{gluteIso.eReps}}</td>
+                <td>{{gluteIso.eRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if calfIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{calfIso.isoexercise}}</td>
+                <td>{{calfIso.eSets}}</td>
+                <td>{{calfIso.eReps}}</td>
+                <td>{{calfIso.eRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
           {{/if}}
+
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Legs & Glutes"))}}
-            <tr>
-              <td>{{legIso.isoexercise}}</td>
-              <td>{{legIso.gSets}}</td>
-              <td>{{legIso.gReps}}</td>
-              <td>{{legIso.gRest}}</td>
-            </tr>
-          <tr>
-            <td>{{gluteIso.isoexercise}}</td>
-            <td>{{gluteIso.gSets}}</td>
-            <td>{{gluteIso.gReps}}</td>
-            <td>{{gluteIso.gRest}}</td>
-          </tr>
-          <tr>
-            <td>{{calfIso.isoexercise}}</td>
-            <td>{{calfIso.gSets}}</td>
-            <td>{{calfIso.gReps}}</td>
-            <td>{{calfIso.gRest}}</td>
-          </tr>
+
+            {{#if legIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{legIso.isoexercise}}</td>
+                <td>{{legIso.gSets}}</td>
+                <td>{{legIso.gReps}}</td>
+                <td>{{legIso.gRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if gluteIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{gluteIso.isoexercise}}</td>
+                <td>{{gluteIso.gSets}}</td>
+                <td>{{gluteIso.gReps}}</td>
+                <td>{{gluteIso.gRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if calfIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{calfIso.isoexercise}}</td>
+                <td>{{calfIso.gSets}}</td>
+                <td>{{calfIso.gReps}}</td>
+                <td>{{calfIso.gRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
           {{/if}}
+
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Legs & Glutes"))}}
-            <tr>
-              <td>{{legIso.isoexercise}}</td>
-              <td>{{legIso.sSets}}</td>
-              <td>{{legIso.sReps}}</td>
-              <td>{{legIso.sRest}}</td>
-            </tr>
-          <tr>
-            <td>{{gluteIso.isoexercise}}</td>
-            <td>{{gluteIso.sSets}}</td>
-            <td>{{gluteIso.sReps}}</td>
-            <td>{{gluteIso.sRest}}</td>
-          </tr>
-          <tr>
-            <td>{{calfIso.isoexercise}}</td>
-            <td>{{calfIso.sSets}}</td>
-            <td>{{calfIso.sReps}}</td>
-            <td>{{calfIso.sRest}}</td>
-          </tr>
+
+            {{#if legIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{legIso.isoexercise}}</td>
+                <td>{{legIso.sSets}}</td>
+                <td>{{legIso.sReps}}</td>
+                <td>{{legIso.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if gluteIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{gluteIso.isoexercise}}</td>
+                <td>{{gluteIso.sSets}}</td>
+                <td>{{gluteIso.sReps}}</td>
+                <td>{{gluteIso.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
+
+            {{#if calfIso true}}
+              <tr class='exercise' {{action 'toggleHelp'}}>
+                <td>{{calfIso.isoexercise}}</td>
+                <td>{{calfIso.sSets}}</td>
+                <td>{{calfIso.sReps}}</td>
+                <td>{{calfIso.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
+            {{/if}}
           {{/if}}
 
           <!-- Triceps Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Triceps"))}}
             {{#each chosenTris as |tris|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{tris.exercise}}</td>
                 <td>{{tris.eSets}}</td>
                 <td>{{tris.eReps}}</td>
                 <td>{{tris.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Triceps"))}}
           {{#each chosenTris as |tris|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{tris.exercise}}</td>
               <td>{{tris.gSets}}</td>
               <td>{{tris.gReps}}</td>
               <td>{{tris.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Triceps"))}}
           {{#each chosenTris as |tris|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{tris.exercise}}</td>
               <td>{{tris.sSets}}</td>
               <td>{{tris.sReps}}</td>
               <td>{{tris.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -786,31 +1203,43 @@
           <!-- Biceps Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Biceps"))}}
             {{#each chosenBis as |bis|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{bis.exercise}}</td>
                 <td>{{bis.eSets}}</td>
                 <td>{{bis.eReps}}</td>
                 <td>{{bis.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Biceps"))}}
           {{#each chosenBis as |bis|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{bis.exercise}}</td>
               <td>{{bis.gSets}}</td>
               <td>{{bis.gReps}}</td>
               <td>{{bis.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Biceps"))}}
           {{#each chosenBis as |bis|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{bis.exercise}}</td>
               <td>{{bis.sSets}}</td>
               <td>{{bis.sReps}}</td>
               <td>{{bis.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -819,31 +1248,43 @@
           <!-- Chest Assistive Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.eSets}}</td>
                 <td>{{chest.eReps}}</td>
                 <td>{{chest.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.gSets}}</td>
                 <td>{{chest.gReps}}</td>
                 <td>{{chest.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Chest"))}}
             {{#each chosenIsoChest as |chest|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{chest.isoexercise}}</td>
                 <td>{{chest.sSets}}</td>
                 <td>{{chest.sReps}}</td>
                 <td>{{chest.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -851,31 +1292,43 @@
           <!-- Back Assistive Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.eSets}}</td>
                 <td>{{back.eReps}}</td>
                 <td>{{back.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.gSets}}</td>
                 <td>{{back.gReps}}</td>
                 <td>{{back.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Back"))}}
             {{#each chosenIsoBack as |back|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{back.isoexercise}}</td>
                 <td>{{back.sSets}}</td>
                 <td>{{back.sReps}}</td>
                 <td>{{back.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -883,31 +1336,43 @@
           <!-- Shoulders Assistive Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Shoulders"))}}
             {{#each chosenIsoDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.isoexercise}}</td>
                 <td>{{delt.eSets}}</td>
                 <td>{{delt.eReps}}</td>
                 <td>{{delt.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Shoulders"))}}
             {{#each chosenIsoDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.isoexercise}}</td>
                 <td>{{delt.gSets}}</td>
                 <td>{{delt.gReps}}</td>
                 <td>{{delt.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Shoulders"))}}
             {{#each chosenIsoDelt as |delt|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{delt.isoexercise}}</td>
                 <td>{{delt.sSets}}</td>
                 <td>{{delt.sReps}}</td>
                 <td>{{delt.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -915,31 +1380,43 @@
           <!-- Legs Assistive Isolation -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Legs & Glutes"))}}
             {{#each chosenQuads as |legs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legs.isoexercise}}</td>
                 <td>{{legs.eSets}}</td>
                 <td>{{legs.eReps}}</td>
                 <td>{{legs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Legs & Glutes"))}}
             {{#each chosenQuads as |legs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legs.isoexercise}}</td>
                 <td>{{legs.gSets}}</td>
                 <td>{{legs.gReps}}</td>
                 <td>{{legs.gRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Legs & Glutes"))}}
             {{#each chosenQuads as |legs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{legs.isoexercise}}</td>
                 <td>{{legs.sSets}}</td>
                 <td>{{legs.sReps}}</td>
                 <td>{{legs.sRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
@@ -947,31 +1424,43 @@
           <!-- Abdominals Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup2.group "Abdominals"))}}
             {{#each chosenAbs as |abs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{abs.exercise}}</td>
                 <td>{{abs.eSets}}</td>
                 <td>{{abs.eReps}}</td>
                 <td>{{abs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup2.group "Abdominals"))}}
           {{#each chosenAbs as |abs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abs.exercise}}</td>
               <td>{{abs.gSets}}</td>
               <td>{{abs.gReps}}</td>
               <td>{{abs.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup2.group "Abdominals"))}}
           {{#each chosenAbs as |abs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abs.exercise}}</td>
               <td>{{abs.sSets}}</td>
               <td>{{abs.sReps}}</td>
               <td>{{abs.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -979,32 +1468,44 @@
           <!-- Triceps Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Triceps"))}}
             {{#each chosenTris as |tris|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{tris.exercise}}</td>
                 <td>{{tris.eSets}}</td>
                 <td>{{tris.eReps}}</td>
                 <td>{{tris.eRest}}</td>
+              </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
               </tr>
             {{/each}}
           {{/if}}
 
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Triceps"))}}
           {{#each chosenTris as |tris|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{tris.exercise}}</td>
               <td>{{tris.gSets}}</td>
               <td>{{tris.gReps}}</td>
               <td>{{tris.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Triceps"))}}
           {{#each chosenTris as |tris|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{tris.exercise}}</td>
               <td>{{tris.sSets}}</td>
               <td>{{tris.sReps}}</td>
               <td>{{tris.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -1012,31 +1513,43 @@
           <!-- Biceps Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Biceps"))}}
             {{#each chosenBis as |bis|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{bis.exercise}}</td>
                 <td>{{bis.eSets}}</td>
                 <td>{{bis.eReps}}</td>
                 <td>{{bis.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Biceps"))}}
           {{#each chosenBis as |bis|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{bis.exercise}}</td>
               <td>{{bis.gSets}}</td>
               <td>{{bis.gReps}}</td>
               <td>{{bis.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Biceps"))}}
           {{#each chosenBis as |bis|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{bis.exercise}}</td>
               <td>{{bis.sSets}}</td>
               <td>{{bis.sReps}}</td>
               <td>{{bis.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
@@ -1044,31 +1557,43 @@
           <!-- Abdominals Core -->
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Endurance") (eq chosenMuscleGroup3.group "Abdominals"))}}
             {{#each chosenAbs as |abs|}}
-              <tr>
+              <tr class='exercise' {{action 'toggleHelp'}}>
                 <td>{{abs.exercise}}</td>
                 <td>{{abs.eSets}}</td>
                 <td>{{abs.eReps}}</td>
                 <td>{{abs.eRest}}</td>
               </tr>
+              <tr class='program_help hide'>
+                <td colspan='2' class='instruction'></td>
+                <td colspan='2' class='video'></td>
+              </tr>
             {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Muscle Growth") (eq chosenMuscleGroup3.group "Abdominals"))}}
           {{#each chosenAbs as |abs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abs.exercise}}</td>
               <td>{{abs.gSets}}</td>
               <td>{{abs.gReps}}</td>
               <td>{{abs.gRest}}</td>
             </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
+            </tr>
           {{/each}}
           {{/if}}
           {{#if (and (eq chosenFitnessGoal.goal "Strength") (eq chosenMuscleGroup3.group "Abdominals"))}}
           {{#each chosenAbs as |abs|}}
-            <tr>
+            <tr class='exercise' {{action 'toggleHelp'}}>
               <td>{{abs.exercise}}</td>
               <td>{{abs.sSets}}</td>
               <td>{{abs.sReps}}</td>
               <td>{{abs.sRest}}</td>
+            </tr>
+            <tr class='program_help hide'>
+              <td colspan='2' class='instruction'></td>
+              <td colspan='2' class='video'></td>
             </tr>
           {{/each}}
           {{/if}}
