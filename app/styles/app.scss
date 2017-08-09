@@ -1,6 +1,10 @@
 @import 'ember-paper';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Roboto');
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand|Rock+Salt');
+
+$gochi: 'Gochi Hand', cursive;
+$rocksalt: 'Rock Salt', cursive;
 /**
  * Base Elements
  */
@@ -49,7 +53,7 @@ p {
 }
 
 h1 {
-  color: #012130;
+  color: #425a69;
   font-family: 'Architects Daughter', cursive;
 }
 
@@ -105,13 +109,15 @@ h5 {
 // FIRST WELCOME DIV
 
 .logo {
-  background-image: url('/assets/images/mylift.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: auto;
-  height: 175px;
+  font-family: $rocksalt;
+  font-size: 100px;
+  color: #425a69;
   margin-bottom: 20px;
+  line-height: 100px;
+  span {
+    font-size: 20px;
+    padding-top: -50px;
+  }
 }
 
 #mldescription {
@@ -119,12 +125,18 @@ h5 {
 }
 
 #program_logo {
-  background-image: url('/assets/images/mlprogram.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: auto;
-  height: 75px;
+  font-family: $rocksalt;
+  font-size: 50px;
+  line-height: 40px;
+  margin: 20px;
+  color: #425a69;
+  span {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    line-height: 10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
 }
 
 
@@ -132,9 +144,9 @@ h5 {
 
 #program {
   z-index: 9990;
-  margin: 10px auto;
+  margin: auto;
   position: fixed;
-  width: 40.8%;
+  width: 43%;
   text-align: center;
   h1 {
     width: 100%;
@@ -152,9 +164,14 @@ h5 {
     }
   }
   thead {
-    background: #2D4758;
+    background: #425a69;
     color: #fff;
     font-weight: 200 !important;
+    tr {
+      td {
+        padding: 5px;
+      }
+    }
   }
 }
 
@@ -252,7 +269,7 @@ h5 {
     height: 96.5vh;
     text-align: left;
     float: left;
-    padding: 20px;
+    width: 43%;
 }
 
 .right {
