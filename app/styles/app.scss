@@ -114,6 +114,7 @@ h5 {
   color: #425a69;
   margin-bottom: 20px;
   line-height: 100px;
+  overflow: hidden;
   span {
     font-size: 20px;
     padding-top: -50px;
@@ -130,6 +131,7 @@ h5 {
   line-height: 40px;
   margin: 20px;
   color: #425a69;
+  overflow: hidden;
   span {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
@@ -396,6 +398,14 @@ div.md-text{
   }
 }
 
-@media (max-width: ) {
+@media (max-width: 520px) {
+  .logo {
+    font-size: 75px;
+  }
+}
 
+@media (max-width: 416px) {
+  .logo {
+    font-size: 60px;
+  }
 }
